@@ -2,13 +2,6 @@
 {% block content %}
 <section class="intro">
   <h1>管院空間與排課</h1>
-  <p>查看教室資訊、追蹤借用紀錄，或檢視教師的排課志願。</p>
+  <p>管院空間查詢、空間與物品預約借用、志願排課目前開發中。</p>
 </section>
-<ul class="directory">
-  <li><a href="/spaces">空間查詢</a><span>查看教室的樓層、容納人數與空間資訊</span></li>
-  <li><a href="/bookings">預約借用</a><span>登入後查看教室與設備借用紀錄</span></li>
-  {% if not user or user.role in ('teacher', 'admin') %}
-  <li><a href="/scheduling">志願排課</a><span>教師與管理員可查看課程時段</span></li>
-  {% endif %}
-</ul>
 {% endblock %}

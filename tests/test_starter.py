@@ -61,40 +61,31 @@ def test_initial_migration_has_shared_tables(starter):
     engine.dispose()
 
 
-def test_visitor_can_open_space_directory_and_read_seed_data(starter):
+def test_visitor_can_open_homepage_and_login_form(starter):
     client, _ = starter
     assert client.get("/").status_code == 200
-    assert "空間查詢" in client.get("/spaces").text
-    rooms = client.get("/api/rooms").json()
-    assert sorted(room["code"] for room in rooms) == ["DEMO-301", "DEMO-402"]
-    assert client.get(f"/spaces/{rooms[0]['id']}").status_code == 200
+    assert client.get("/login").status_code == 200
 
 
-def test_borrower_can_log_in_and_logout_but_cannot_access_teacher_api(starter):
+@pytest.mark.parametrize("role", ["member", "teacher", "admin"])
+def test_shared_login_preserves_role_and_logout_requires_csrf(starter, role):
     client, _ = starter
-    assert client.get("/api/bookings").status_code == 401
-    assert client.get("/bookings", follow_redirects=False).headers["location"] == "/login"
+    assert client.get("/api/accounts/me").status_code == 401
     response = client.post(
-        "/login", data={"email": "member@example.test", "password": "local-demo-password"},
+        "/login",
+        data={"email": f"{role}@example.test", "password": "local-demo-password"},
         follow_redirects=False,
     )
     assert response.status_code == 303
     assert "HttpOnly" in response.headers["set-cookie"]
-    assert client.get("/bookings").status_code == 200
-    assert len(client.get("/api/bookings").json()) == 1
-    assert client.get("/api/courses").status_code == 403
+    profile = client.get("/api/accounts/me").json()
+    assert profile["role"] == role
     assert client.post("/logout").status_code == 403
-    csrf = client.get("/api/accounts/me").json()["csrf_token"]
-    assert client.post("/logout", data={"csrf_token": csrf}, follow_redirects=False).status_code == 303
-    assert client.get("/api/bookings").status_code == 401
-
-
-def test_teacher_can_read_their_own_seed_courses(starter):
-    client, _ = starter
-    client.post("/login", data={"email": "teacher@example.test", "password": "local-demo-password"})
-    assert client.get("/scheduling").status_code == 200
-    courses = client.get("/api/courses").json()
-    assert [course["title"] for course in courses] == ["軟體工程"]
+    response = client.post(
+        "/logout", data={"csrf_token": profile["csrf_token"]}, follow_redirects=False,
+    )
+    assert response.status_code == 303
+    assert client.get("/api/accounts/me").status_code == 401
 
 
 def test_login_rejects_unknown_accounts(starter):

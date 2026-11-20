@@ -12,13 +12,6 @@
   <header class="bar">
     <div class="shell header">
       <a class="brand" href="/">管院空間管理</a>
-      <nav aria-label="主要導覽">
-        {% for path, name in [('/spaces', '空間查詢'), ('/bookings', '預約借用'), ('/scheduling', '志願排課')] %}
-          {% if path != '/scheduling' or not user or user.role in ('teacher', 'admin') %}
-            <a href="{{ path }}" {% if request.url.path == path or request.url.path.startswith(path ~ '/') %}aria-current="true"{% endif %}>{{ name }}</a>
-          {% endif %}
-        {% endfor %}
-      </nav>
       {% if user %}
         <form action="/logout" method="post" class="account">
           <input type="hidden" name="csrf_token" value="{{ request.state.csrf_token }}">

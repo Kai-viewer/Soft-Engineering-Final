@@ -7,7 +7,7 @@
 先安裝 [uv](https://docs.astral.sh/uv/getting-started/installation/) 並啟動 Docker Desktop 或 Docker Engine。在 repo 根目錄執行：
 
 ```sh
-cp .env.example .env
+test -f .env || cp .env.example .env
 uv sync --locked
 docker compose up -d --wait db
 uv run alembic upgrade head
@@ -19,11 +19,13 @@ uv run uvicorn app.main:app --reload
 
 ## 分工與開發起點
 
-| 負責人 | 目錄 | 已有介面 | 下一步 |
-|---|---|---|---|
-| A | `app/spaces/` | `/spaces`、教室詳情、`GET /api/rooms` 與教室 ID 查詢 | 管理員教室增刪改、樓層標記、360° 檢視 |
-| B | `app/bookings/` | `/bookings`、`GET /api/bookings` | 週曆、預約與多物品選擇、審核和領還紀錄 |
-| C | `app/scheduling/` | `/scheduling`、`GET /api/courses` | 課程增刪改、教師指派、週曆拖曳和衝突清單 |
+三個模組的空路由已由 `app/main.py` 掛載。各組員從自己的 `router.py` 開始實作 API 和頁面，在 `app/templates/` 新增樣板。資料表、資料模型與可選的測試資料已可共用。
+
+| 負責人 | 起點 | 要開發的功能 |
+|---|---|---|
+| A | `app/spaces/router.py` | 教室查詢與詳情、管理員教室增刪改、樓層標記、360° 檢視 |
+| B | `app/bookings/router.py` | 借用週曆、預約和多物品選擇、審核、領用與歸還、借用紀錄 |
+| C | `app/scheduling/router.py` | 教師志願、管理員課程調整與指派、週曆拖曳和衝突清單 |
 
 `app/accounts/` 提供測試帳號的登入、登出、角色檢查與 `GET /api/accounts/me`。註冊與帳號審核介面列為共用功能的後續工作。新增寫入路由時，使用共用的登入角色依賴、檢查紀錄歸屬，並像登出一樣驗證 session 的 CSRF token。新頁面可繼承 `app/templates/base.html`。
 
