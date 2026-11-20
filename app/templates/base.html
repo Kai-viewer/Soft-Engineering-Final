@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>{% block title %}首頁{% endblock %}｜管院空間管理</title>
+  <link rel="stylesheet" href="{{ url_for('static', path='site.css') }}">
+</head>
+<body>
+  <a class="skip" href="#content">跳至主要內容</a>
+  {% set user = request.state.user | default(none) %}
+  <header class="bar">
+    <div class="shell header">
+      <a class="brand" href="/">管院空間管理</a>
+      <nav aria-label="主要導覽">
+        {% for path, name in [('/spaces', '空間查詢'), ('/bookings', '預約借用'), ('/scheduling', '志願排課')] %}
+          {% if path != '/scheduling' or not user or user.role in ('teacher', 'admin') %}
+            <a href="{{ path }}" {% if request.url.path == path or request.url.path.startswith(path ~ '/') %}aria-current="true"{% endif %}>{{ name }}</a>
+          {% endif %}
+        {% endfor %}
+      </nav>
+      {% if user %}
+        <form action="/logout" method="post" class="account">
+          <input type="hidden" name="csrf_token" value="{{ request.state.csrf_token }}">
+          <span>{{ user.display_name }}</span>
+          <button class="secondary" type="submit">登出</button>
+        </form>
+      {% else %}
+        <a class="account secondary" href="/login">登入</a>
+      {% endif %}
+    </div>
+  </header>
+  <main id="content" class="shell">
+    {% block content %}{% endblock %}
+  </main>
+</body>
+</html>

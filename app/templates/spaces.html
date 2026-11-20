@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block title %}空間查詢{% endblock %}
+{% block content %}
+<section class="intro"><h1>空間查詢</h1><p>查看管院教室的位置和容納人數。</p></section>
+{% if rooms %}
+  <label for="room-filter" id="room-filter-label" hidden>搜尋教室</label>
+  <input id="room-filter" type="search" placeholder="輸入編號、教室名稱或樓層" hidden>
+  <div class="table-scroll" tabindex="0" role="region" aria-label="教室查詢結果">
+    <table>
+      <thead><tr><th scope="col">教室</th><th scope="col">編號</th><th scope="col">樓層</th><th scope="col">容量</th></tr></thead>
+      <tbody>
+        {% for room in rooms %}
+        <tr data-room><th scope="row"><a href="{{ url_for('room_page', room_id=room.id) }}">{{ room.name }}</a></th><td>{{ room.code }}</td><td>{{ room.floor }} 樓</td><td>{{ room.capacity }} 人</td></tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+  <p id="room-empty" role="status" hidden>找不到符合條件的教室。</p>
+  <script src="{{ url_for('static', path='spaces.js') }}" defer></script>
+{% else %}
+  <p class="panel">目前沒有可查詢的教室。</p>
+{% endif %}
+{% endblock %}

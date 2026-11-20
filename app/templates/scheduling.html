@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block title %}志願排課{% endblock %}
+{% block content %}
+<section class="intro">
+  <h1>志願排課</h1>
+  <p>{{ '所有教師的課程' if user.role == 'admin' else '你的課程志願' }} · 台北時間</p>
+</section>
+{% if rows %}
+  <div class="table-scroll" tabindex="0" role="region" aria-label="課程志願"><table>
+    <thead><tr><th scope="col">課程</th><th scope="col">教室</th><th scope="col">開始</th><th scope="col">結束</th><th scope="col">狀態</th></tr></thead>
+    <tbody>{% for course, code in rows %}
+      <tr><th scope="row">{{ course.title }}</th><td>{{ code }}</td><td>{{ course.starts_at | local_time }}</td><td>{{ course.ends_at | local_time }}</td><td>{{ '已確認' if course.status == 'confirmed' else '志願' }}</td></tr>
+    {% endfor %}</tbody>
+  </table></div>
+{% else %}
+  <p class="panel">目前沒有課程紀錄。</p>
+{% endif %}
+{% endblock %}

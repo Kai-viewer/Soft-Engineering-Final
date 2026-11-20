@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block title %}{{ room.name }}{% endblock %}
+{% block content %}
+<a class="back" href="/spaces">返回空間查詢</a>
+<section class="intro">
+  <h1>{{ room.name }}</h1>
+  <p>{{ room.code }} · {{ room.floor }} 樓 · {{ room.capacity }} 人</p>
+  {% if room.description %}<p>{{ room.description }}</p>{% endif %}
+</section>
+<div class="panel">
+  <h2>樓層圖與全景</h2>
+  {% if room.floor_plan_path %}
+    <img class="room-photo" src="{{ url_for('static', path=room.floor_plan_path) }}" alt="{{ room.floor }} 樓平面圖">
+  {% else %}
+    <p>尚未提供樓層圖。</p>
+  {% endif %}
+  {% if room.panorama_path %}
+    <a href="{{ url_for('static', path=room.panorama_path) }}">查看全景照片原圖</a>
+  {% else %}
+    <p>尚未提供全景照片。</p>
+  {% endif %}
+</div>
+{% endblock %}
