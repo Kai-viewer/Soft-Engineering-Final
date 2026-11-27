@@ -90,7 +90,10 @@ def login(
     fetch_site = request.headers.get("sec-fetch-site")
     if (origin and origin != same_origin) or fetch_site in {"cross-site", "same-site"}:
         raise HTTPException(403, "請從本站登入")
-    user = db.scalar(select(User).where(User.email == email.strip().lower()))
+    account = email.strip().lower()
+    if account in {"member", "teacher", "admin"}:
+        account = f"{account}@example.test"
+    user = db.scalar(select(User).where(User.email == account))
     valid, updated_hash = password_hasher.verify_and_update(
         password, user.password_hash if user else DUMMY_PASSWORD_HASH
     )

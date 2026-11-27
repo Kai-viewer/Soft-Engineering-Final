@@ -4,18 +4,37 @@
 
 ## 本機啟動
 
-先安裝 [uv](https://docs.astral.sh/uv/getting-started/installation/) 並啟動 Docker Desktop 或 Docker Engine。在 repo 根目錄執行：
+先安裝 [uv](https://docs.astral.sh/uv/getting-started/installation/) 並啟動 Docker Desktop 或 Docker Engine。第一次取得專案可執行：
+
+```sh
+git clone https://github.com/Kai-viewer/Soft-Engineering-Final.git
+cd Soft-Engineering-Final
+```
+
+已下載或 clone 的組員，直接在專案根目錄執行：
 
 ```sh
 test -f .env || cp .env.example .env
 uv sync --locked
 docker compose up -d --wait db
-uv run alembic upgrade head
-uv run python -m app.seed
-uv run uvicorn app.main:app --reload
+uv run --locked alembic upgrade head
+uv run --locked python -m app.seed
+uv run --locked uvicorn app.main:app --reload
 ```
 
-開啟 [首頁](http://127.0.0.1:8000/) 或 [Swagger API 文件](http://127.0.0.1:8000/docs)。匯入測試資料時輸入至少 12 字元的本機密碼。三個測試帳號使用該密碼：`member@example.test`、`teacher@example.test`、`admin@example.test`。再次執行 seed 會補上缺少的資料，既有帳號的密碼沿用首次設定。
+Alembic 建立資料表。接著 seed 匯入測試帳號、教室和借用紀錄。啟動後可開啟 [網站首頁](http://127.0.0.1:8000/)、[登入頁](http://127.0.0.1:8000/login) 或 [Swagger API 文件](http://127.0.0.1:8000/docs)。
+
+### 網站測試帳號
+
+使用範本的 `DEMO_PASSWORD=123` 並首次匯入後，可在網站登入：
+
+| 角色 | 帳號 | 預設密碼 |
+|---|---|---|
+| 一般使用者 | `member` | `123` |
+| 教師 | `teacher` | `123` |
+| 管理員 | `admin` | `123` |
+
+這組帳密供本機開發使用。若要自訂密碼，可在首次匯入前修改 `.env` 的 `DEMO_PASSWORD`。再次執行 seed 會保留已存在帳號的密碼。
 
 ## 分工與開發起點
 
@@ -44,15 +63,17 @@ uv run uvicorn app.main:app --reload
 docker compose up -d adminer
 ```
 
-開啟 [本機 Adminer](http://127.0.0.1:8080/)，用以下資料登入：
+Adminer 使用 PostgreSQL 的連線帳密。開啟 [本機 Adminer](http://127.0.0.1:8080/) 後，依自己的 `.env` 填寫：
 
-| 欄位 | 填寫 |
-|---|---|
-| 系統 | PostgreSQL |
-| 伺服器 | `db` |
-| 使用者 | `.env` 的 `POSTGRES_USER` |
-| 密碼 | `.env` 的 `POSTGRES_PASSWORD` |
-| 資料庫 | `.env` 的 `POSTGRES_DB` |
+| 欄位 | 取值 | `.env.example` 預設值 |
+|---|---|---|
+| 系統 | 選 PostgreSQL | PostgreSQL |
+| 伺服器 | Compose 資料庫服務名稱 | `db` |
+| 使用者 | `POSTGRES_USER` | `se_app` |
+| 密碼 | `POSTGRES_PASSWORD` | `se_local_db` |
+| 資料庫 | `POSTGRES_DB` | `soft_engineering` |
+
+登入後可點選 `rooms`、`bookings` 或 `courses`，再選取資料查看紀錄。
 
 如果 8080 已被占用，在 `.env` 加上 `ADMINER_PORT=8081`，重新啟動 Adminer，再開啟對應的本機網址。用 `docker compose stop adminer` 可以只關閉管理介面。
 
@@ -63,7 +84,7 @@ uv run pytest -q
 uv run alembic check
 ```
 
-預設測試使用臨時 SQLite。要驗證 PostgreSQL 可用本機 Compose 的連線字串執行同一套測試。測試會在各自的暫存 schema 裡套用和回滾遷移。
+預設測試使用臨時 SQLite。要驗證 PostgreSQL，請以自己 `.env` 的 `DATABASE_URL` 設定 `TEST_DATABASE_URL`。以下指令使用範本的預設連線字串。測試會在各自的暫存 schema 裡套用和回滾遷移。
 
 ```sh
 TEST_DATABASE_URL='postgresql+psycopg://se_app:se_local_db@127.0.0.1:55432/soft_engineering' uv run pytest -q

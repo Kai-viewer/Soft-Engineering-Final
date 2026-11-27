@@ -68,12 +68,14 @@ def test_visitor_can_open_homepage_and_login_form(starter):
 
 
 @pytest.mark.parametrize("role", ["member", "teacher", "admin"])
-def test_shared_login_preserves_role_and_logout_requires_csrf(starter, role):
+@pytest.mark.parametrize("use_email", [True, False], ids=["email", "short-account"])
+def test_shared_login_preserves_role_and_logout_requires_csrf(starter, role, use_email):
     client, _ = starter
     assert client.get("/api/accounts/me").status_code == 401
+    account = f"{role}@example.test" if use_email else role
     response = client.post(
         "/login",
-        data={"email": f"{role}@example.test", "password": "local-demo-password"},
+        data={"email": account, "password": "local-demo-password"},
         follow_redirects=False,
     )
     assert response.status_code == 303
