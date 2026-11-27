@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% block title %}登入{% endblock %}
+{% block content %}
+<section class="intro"><h1>登入</h1><p>使用已通過審核的帳號查看借用或排課紀錄。</p></section>
+<form class="panel login" method="post" action="/login">
+  {% if error %}<p class="error" role="alert">{{ error }}</p>{% endif %}
+  <label for="email">電子郵件</label>
+  <input id="email" name="email" type="email" value="{{ email | default('') }}" autocomplete="username" maxlength="254" required>
+  <label for="password">密碼</label>
+  <input id="password" name="password" type="password" autocomplete="current-password" maxlength="256" required>
+  <button type="submit">登入</button>
+</form>
+{% endblock %}

@@ -1,0 +1,29 @@
+[project]
+name = "soft-engineering-final"
+version = "0.1.0"
+description = "管院空間查詢、預約借用與志願排課"
+requires-python = ">=3.12,<3.15"
+dependencies = [
+    "alembic>=1.14,<2",
+    "fastapi>=0.115,<1",
+    "jinja2>=3.1,<4",
+    "psycopg[binary]>=3.2,<4",
+    "pwdlib[argon2]>=0.2,<1",
+    "python-dotenv>=1,<2",
+    "python-multipart>=0.0.18,<1",
+    "sqlalchemy>=2.0,<2.1",
+    "uvicorn>=0.30,<1",
+]
+
+[dependency-groups]
+dev = [
+    "httpx2>=2,<3",
+    "pytest>=8,<10",
+]
+
+[tool.uv]
+package = false
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["."]
