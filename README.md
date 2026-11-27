@@ -36,6 +36,26 @@ uv run uvicorn app.main:app --reload
 - 調整 schema 時，先更新模組的 `models.py`，再用 `uv run alembic revision --autogenerate -m "describe change"` 產生遷移。檢查產出的 upgrade/downgrade，和模型一起提交 PR。重新整理分支後用 `uv run alembic heads` 確認只有一個分支頭，再執行 `uv run alembic upgrade head`。若合併後已有兩個遷移分支頭，先用 `uv run alembic merge -m "merge schema branches" <rev1> <rev2>` 建立合併遷移，再一起測試。
 - `.env` 放本機設定並由 Git 忽略。若調整 PostgreSQL port，請同步修改 `POSTGRES_PORT` 和 `DATABASE_URL`。期末整合展示時，所有路由連到同一個 Demo 資料庫。
 
+### 用 Adminer 瀏覽資料庫
+
+在專案根目錄執行：
+
+```sh
+docker compose up -d adminer
+```
+
+開啟 [本機 Adminer](http://127.0.0.1:8080/)，用以下資料登入：
+
+| 欄位 | 填寫 |
+|---|---|
+| 系統 | PostgreSQL |
+| 伺服器 | `db` |
+| 使用者 | `.env` 的 `POSTGRES_USER` |
+| 密碼 | `.env` 的 `POSTGRES_PASSWORD` |
+| 資料庫 | `.env` 的 `POSTGRES_DB` |
+
+如果 8080 已被占用，在 `.env` 加上 `ADMINER_PORT=8081`，重新啟動 Adminer，再開啟對應的本機網址。用 `docker compose stop adminer` 可以只關閉管理介面。
+
 ## 測試
 
 ```sh
