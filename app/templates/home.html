@@ -3,5 +3,10 @@
 <section class="intro">
   <h1>管院空間與排課</h1>
   <p>管院空間查詢、空間與物品預約借用、志願排課目前開發中。</p>
+  {% if request.state.user and request.state.user.role == 'admin' %}
+  <p><a class="secondary" href="/admin/rooms">教室管理</a></p>
+  {% else %}
+  <p><a class="secondary" href="/rooms">空間查詢</a></p>
+  {% endif %}
 </section>
 {% endblock %}

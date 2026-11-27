@@ -1,0 +1,64 @@
+{% extends "spaces/_layout.html" %}
+{% block title %}{{ '新增教室' if is_new else '編輯 ' ~ room.code }}{% endblock %}
+
+{% block page %}
+<p class="small"><a href="/admin/rooms">← 回教室管理</a></p>
+<section class="intro"><h1>{{ '新增教室' if is_new else '編輯 ' ~ room.code }}</h1></section>
+<form class="panel room-form" method="post" enctype="multipart/form-data"
+      action="{{ '/admin/rooms/new' if is_new else '/admin/rooms/' ~ room.id ~ '/edit' }}">
+  {% if errors %}<ul class="errors" role="alert">{% for e in errors %}<li>{{ e }}</li>{% endfor %}</ul>{% endif %}
+  <input type="hidden" name="csrf_token" value="{{ request.state.csrf_token }}">
+  <div class="fields">
+    <div><label for="code">教室編號</label>
+      <input id="code" name="code" value="{{ room.code or '' }}" maxlength="32" required placeholder="例：管228"></div>
+    <div><label for="name">名稱</label>
+      <input id="name" name="name" value="{{ room.name or '' }}" maxlength="100" placeholder="留空則用廳名或類型"></div>
+    <div><label for="alias">廳名 / 別名</label>
+      <input id="alias" name="alias" value="{{ room.alias or '' }}" maxlength="50" placeholder="例：賈伯斯廳"></div>
+    <div><label for="room_type">類型名稱</label>
+      <input id="room_type" name="room_type" value="{{ room.room_type or '' }}" maxlength="50" placeholder="例：個案階梯教室"></div>
+    <div><label for="building">大樓</label>
+      <select id="building" name="building">
+        {% for b in buildings %}<option value="{{ b }}" {% if room.building == b %}selected{% endif %}>{{ b }}</option>{% endfor %}
+      </select></div>
+    <div><label for="floor">樓層</label>
+      <input id="floor" name="floor" value="{{ room.floor | floor if room.floor is defined and room.floor is not none else '' }}" maxlength="5" required placeholder="例：2F、B1"></div>
+    <div><label for="category">分類</label>
+      <select id="category" name="category">
+        {% for k, v in CATEGORIES.items() %}<option value="{{ k }}" {% if room.category == k %}selected{% endif %}>{{ v }}</option>{% endfor %}
+      </select></div>
+    <div><label for="capacity">可容納人數</label>
+      <input id="capacity" name="capacity" type="number" min="1" value="{{ room.capacity if room.capacity else '' }}" required></div>
+    <div><label for="manager">管理單位</label>
+      <input id="manager" name="manager" value="{{ room.manager or '' }}" maxlength="100" placeholder="例：管理學院辦公室"></div>
+    <div><label for="borrow_method">借用方式</label>
+      <select id="borrow_method" name="borrow_method">
+        <option value="">（未設定）</option>
+        {% for m in methods %}<option value="{{ m.code }}" {% if room.borrow_method == m.code %}selected{% endif %}>{{ m.name }}</option>{% endfor %}
+      </select></div>
+    <div class="wide"><label class="check"><input type="checkbox" name="bookable" value="1" {% if room.bookable %}checked{% endif %}> 開放借用</label></div>
+    <div class="wide"><label for="location">所在位置</label>
+      <input id="location" name="location" value="{{ room.location or '' }}" maxlength="100" placeholder="例：管理學院2樓"></div>
+    <div class="wide"><label for="facilities">設備（以「、」分隔，數量寫成 *2）</label>
+      <textarea id="facilities" name="facilities" rows="2" placeholder="投影機、布幕、無線麥克風*2、冷氣">{{ facilities }}</textarea></div>
+    <div class="wide"><label for="usage_note">使用方式</label>
+      <textarea id="usage_note" name="usage_note" rows="2">{{ room.usage_note or '' }}</textarea></div>
+    <div class="wide"><label for="note">備註</label>
+      <textarea id="note" name="note" rows="2">{{ room.note or '' }}</textarea></div>
+    <div class="wide"><label for="description">說明</label>
+      <textarea id="description" name="description" rows="3">{{ room.description or '' }}</textarea></div>
+    <div class="wide">
+      <label for="panorama">360° 全景照片（等距長方投影，寬:高 = 2:1，JPG / PNG，30MB 內）</label>
+      <input id="panorama" name="panorama" type="file" accept="image/jpeg,image/png" data-max-mb="30">
+      {% if room.panorama_path %}
+      <p class="small">目前照片：<a href="{{ room.panorama_path }}" target="_blank">{{ room.panorama_path.split('/')[-1] }}</a></p>
+      <label class="check"><input type="checkbox" name="remove_panorama" value="1"> 刪除目前照片</label>
+      {% endif %}
+    </div>
+  </div>
+  <div class="actions">
+    <button type="submit">儲存</button>
+    <a class="secondary" href="/admin/rooms">取消</a>
+  </div>
+</form>
+{% endblock %}

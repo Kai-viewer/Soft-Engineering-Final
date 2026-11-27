@@ -1,0 +1,30 @@
+{#
+  空間查詢模組的頁面骨架：繼承共用的 base.html（不修改它），
+  在 content 區塊內載入本模組的 CSS、子選單、訊息與 JS。
+  頁面請使用 page_head / page / page_scripts 三個區塊。
+#}
+{% extends "base.html" %}
+{% block content %}
+<link rel="stylesheet" href="{{ asset('spaces.css') }}">
+{% block page_head %}{% endblock %}
+{% set user = request.state.user | default(none) %}
+{% set path = request.url.path %}
+<nav class="spaces-nav" aria-label="空間模組">
+  {% if user and user.role == 'admin' %}
+  {# 管理員只有管理頁面 #}
+  <a href="/admin/rooms" {% if path.startswith('/admin/rooms') %}aria-current="page"{% endif %}>教室管理</a>
+  <a href="/admin/floorplans" {% if path.startswith('/admin/floorplans') %}aria-current="page"{% endif %}>平面圖標記</a>
+  {% else %}
+  <a href="/rooms" {% if path == '/rooms' or (path.startswith('/rooms/') and path != '/rooms/floorplan') %}aria-current="page"{% endif %}>空間查詢</a>
+  <a href="/rooms/floorplan" {% if path == '/rooms/floorplan' %}aria-current="page"{% endif %}>樓層平面圖</a>
+  {% endif %}
+</nav>
+{% set msg = request.query_params.get('msg') %}
+{% if msg %}
+  {% set kind = request.query_params.get('msg_type', 'success') %}
+  <p class="notice {{ kind if kind in ['success', 'warning', 'danger'] else 'success' }}" role="status">{{ msg }}</p>
+{% endif %}
+{% block page %}{% endblock %}
+<script src="{{ asset('common.js') }}"></script>
+{% block page_scripts %}{% endblock %}
+{% endblock %}

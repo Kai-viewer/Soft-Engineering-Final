@@ -1,0 +1,198 @@
+/* 空間查詢模組：只在本模組的頁面載入（app/spaces/templates/spaces/_layout.html），
+   沿用共用 site.css 的配色變數（--ink、--muted、--surface、--line、--green…），不修改 site.css */
+:root {
+  --c-classroom: #2f6fb0;
+  --c-hall: #7b4fb5;
+  --c-meeting_room: #c46f1f;
+  --c-seminar_room: #17644d;
+  --c-lounge: #b84a72;
+  --c-office: #66756f;
+  --c-research_room: #8a6a3f;
+  --c-other: #94a09b;
+}
+
+/* ---------- 模組子選單、訊息、表單、表格、標籤 ---------- */
+.spaces-nav { display: flex; flex-wrap: wrap; gap: .25rem; margin: -1.5rem 0 1.75rem; }
+.spaces-nav a { padding: .35rem .8rem; border-radius: 999px; color: var(--muted); font-weight: 650; text-decoration: none; }
+.spaces-nav a:hover { background: var(--green-light); color: var(--green); }
+.spaces-nav a[aria-current="page"] { background: var(--green-light); color: var(--green); }
+.notice { padding: .7rem 1rem; border-radius: .5rem; border: 1px solid; margin-bottom: 1.5rem; }
+.notice.success { background: var(--green-light); border-color: #b9d6c1; color: var(--green); }
+.notice.warning { background: #fff6e2; border-color: #ecd59b; color: #7a5200; }
+.notice.danger { background: #fbecea; border-color: #ecc2bf; color: var(--danger); }
+.errors { color: var(--danger); margin: 0 0 1rem; padding-left: 1.2rem; }
+.small { font-size: .85rem; }
+
+select, textarea { font: inherit; color: var(--ink); background: var(--surface); border: 1px solid #809489;
+  border-radius: .35rem; padding: .5rem .65rem; width: 100%; margin-bottom: 1rem; }
+textarea { resize: vertical; }
+.fields { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 1.25rem; }
+.fields input:not([type=hidden]):not([type=checkbox]):not([type=file]) { width: 100%; }
+.fields .wide { grid-column: 1 / -1; }
+.check { display: flex; align-items: center; gap: .5rem; font-weight: 500; margin-bottom: 1rem; }
+.check input { width: auto !important; margin: 0 !important; }
+.actions { display: flex; flex-wrap: wrap; gap: .5rem; align-items: center; }
+.actions form { margin: 0; }
+a.button { display: inline-flex; align-items: center; border: 1px solid transparent; border-radius: .35rem;
+  padding: .4rem .8rem; color: white; background: var(--green); font-weight: 650; text-decoration: none; }
+a.button:hover { background: #103d30; color: white; }
+button.danger { background: var(--surface); color: var(--danger); border-color: #e2b9b6; }
+button.danger:hover { background: #fbecea; }
+button:disabled { opacity: .55; cursor: not-allowed; }
+.search-row { display: flex; gap: .5rem; margin-bottom: 1.25rem; flex-wrap: wrap; }
+.search-row input[type=search] { flex: 1; min-width: 12rem; width: auto; margin: 0; }
+
+.tabs { display: flex; flex-wrap: wrap; gap: .35rem; margin-bottom: 1.25rem; }
+.tabs a { padding: .35rem .85rem; border-radius: 999px; border: 1px solid var(--line); background: var(--surface);
+  color: var(--ink); text-decoration: none; font-weight: 600; }
+.tabs a[aria-current="page"] { background: var(--green); border-color: var(--green); color: #fff; }
+
+.table-wrap { overflow-x: auto; background: var(--surface); border: 1px solid var(--line); border-radius: .75rem; }
+table.list { width: 100%; border-collapse: collapse; font-size: .95rem; }
+table.list th, table.list td { text-align: left; padding: .6rem .85rem; border-bottom: 1px solid var(--line); vertical-align: middle; }
+table.list th { color: var(--muted); font-weight: 650; font-size: .85rem; background: #fafcfa; }
+table.list tr:last-child td { border-bottom: none; }
+
+.tag { display: inline-block; padding: .05rem .55rem; border-radius: 999px; font-size: .8rem; font-weight: 600;
+  background: var(--green-light); color: var(--green); white-space: nowrap; }
+.tag.gray { background: #eef1ef; color: var(--muted); }
+.tag.dark { background: var(--ink); color: #fff; }
+
+.panel.wide-panel, .panel.filters, .panel.room-form { max-width: none; margin-bottom: 1.5rem; }
+.alias { font-size: .85em; font-weight: 500; color: var(--muted); margin-left: .25rem; }
+.tags { display: flex; flex-wrap: wrap; gap: .35rem; margin-bottom: .5rem; }
+.pre { white-space: pre-line; }
+.page-head { display: flex; justify-content: space-between; align-items: flex-end; gap: 1rem; flex-wrap: wrap; }
+.page-head p { margin-bottom: 0; }
+tr.inactive td { color: var(--muted); }
+
+/* 分類標籤 */
+.tag.cat-classroom { background: #e6eff8; color: var(--c-classroom); }
+.tag.cat-hall { background: #efe8f8; color: var(--c-hall); }
+.tag.cat-meeting_room { background: #fbeedd; color: #98520f; }
+.tag.cat-seminar_room { background: var(--green-light); color: var(--c-seminar_room); }
+.tag.cat-lounge { background: #f8e6ee; color: var(--c-lounge); }
+.tag.cat-office, .tag.cat-research_room, .tag.cat-other { background: #eef1ef; color: var(--muted); }
+
+/* ---------- Google 地圖截圖：本層教室圓點 + 出入口按鈕 ---------- */
+.map-head { display: flex; justify-content: space-between; align-items: flex-end; gap: .75rem 1rem; flex-wrap: wrap; margin-bottom: .75rem; }
+.map-head h2, .map-head p { margin: 0; }
+.map-head .legend { margin: 0; }
+/* 截圖原寬 620px，最多放大到約 1.2 倍，避免模糊 */
+.plan-frame.site-map, .site-map-static { max-width: 46rem; margin-inline: auto; }
+.site-map .plan-stage { position: relative; min-width: 36rem; }   /* 出入口按鈕的定位基準 */
+.site-map .floorplan { border-radius: .6rem; }
+.site-map .dot { stroke-width: 2.5; }
+.site-map-static img { display: block; width: 100%; height: auto; border-radius: .6rem; }
+.entrance { position: absolute; z-index: 2; display: inline-flex; align-items: center; gap: .3rem; white-space: nowrap;
+  padding: .25rem .35rem .25rem .55rem; border-radius: 999px; background: rgba(255, 255, 255, .95); color: var(--ink);
+  border: 1px solid var(--line); box-shadow: 0 3px 10px rgba(14, 40, 30, .35); font-size: .8rem; font-weight: 650;
+  text-decoration: none; }
+.entrance:hover { color: var(--ink); border-color: var(--green); }
+.entrance b { padding: 0 .4rem; border-radius: 999px; background: var(--green-light); color: var(--green); }
+.entrance.here { background: var(--green); border-color: #fff; color: #fff; }
+.entrance.here b { background: #fff; }
+/* 小方塊標出入口實際位置，按鈕放在旁邊（往大樓外側），避免蓋住教室圓點 */
+.entrance .door { position: absolute; width: .7rem; height: .7rem; border-radius: .15rem; background: #f2a33a; border: 2px solid #fff;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, .5); }
+.entrance-left { transform: translate(calc(-100% - .9rem), -50%); }
+.entrance-left .door { right: -1.25rem; top: calc(50% - .35rem); }
+.entrance-right { transform: translate(.9rem, -50%); }
+.entrance-right .door { left: -1.25rem; top: calc(50% - .35rem); }
+.entrance-below { transform: translate(-50%, .9rem); }
+.entrance-below .door { top: -1.25rem; left: calc(50% - .35rem); }
+.map-open { position: absolute; right: .6rem; top: .6rem; z-index: 2; padding: .3rem .65rem; border-radius: .35rem;
+  background: rgba(255, 255, 255, .95); color: var(--green); font-weight: 650; font-size: .82rem; text-decoration: none;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, .25); }
+.attribution { font-size: .72rem; margin: .4rem 0 0; text-align: center; }
+
+/* ---------- 查詢 ---------- */
+.filters .search-row input[type=search] { margin: 0; }
+.filter-grid { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 0 .9rem; }
+.filter-grid input:not([type=hidden]) { width: 100%; }
+.filters .actions .check { margin-bottom: 0; }
+.result-count { margin-bottom: .75rem; }
+.room-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(16rem, 1fr)); gap: 1rem; }
+.room-card { display: block; color: inherit; text-decoration: none; transition: border-color .15s, transform .15s; }
+.room-card:hover { border-color: var(--green); color: inherit; transform: translateY(-1px); }
+.room-card-head { display: flex; justify-content: space-between; align-items: baseline; gap: .5rem; }
+.room-card h2 { margin: 0 0 .2rem; font-size: 1.2rem; }
+.room-card p { margin-bottom: .4rem; }
+.cap { font-size: 1.3rem; font-weight: 750; color: var(--green); white-space: nowrap; font-variant-numeric: tabular-nums; }
+.cap small { font-size: .75rem; font-weight: 500; color: var(--muted); }
+.facilities { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; margin: 0; }
+
+/* ---------- 詳細頁 ---------- */
+.detail-grid { display: grid; grid-template-columns: 2fr 1fr; gap: 1.25rem; align-items: start; margin-bottom: 1.5rem; }
+.detail-grid .panel { max-width: none; }
+.info { margin: 0 0 1rem; display: grid; gap: .1rem; }
+.info div { display: grid; grid-template-columns: 7rem 1fr; gap: .75rem; padding: .45rem 0; border-bottom: 1px solid var(--line); }
+.info div:last-child { border-bottom: none; }
+.info dt { color: var(--muted); }
+.info dd { margin: 0; }
+h3 { font-size: 1rem; margin: 1rem 0 .5rem; }
+.chips { display: flex; flex-wrap: wrap; gap: .4rem; }
+.chip { padding: .15rem .65rem; border: 1px solid var(--line); border-radius: 999px; background: var(--canvas); font-size: .88rem; }
+.borrow { background: var(--green-light); border-color: #b9d6c1; }
+.borrow .online { border-top: 1px solid #b9d6c1; margin-top: 1rem; padding-top: .75rem; }
+.borrow .online h3 { margin-top: 0; }
+.pano, .pano.pnlm-container { width: 100%; height: 28rem; border-radius: .6rem; overflow: hidden; background: #111; }
+.pano-empty { height: 10rem; display: grid; place-items: center; border: 2px dashed var(--line); border-radius: .6rem;
+  color: var(--muted); background: var(--canvas); }
+
+/* ---------- 樓層平面圖與圓點 ---------- */
+.plan-frame { position: relative; }          /* 資訊卡的定位基準（不捲動、不裁切） */
+.plan-wrap { width: 100%; overflow-x: auto; -webkit-overflow-scrolling: touch; border-radius: .6rem; }
+.plan-stage { min-width: 44rem; }           /* 手機上可左右捲動看細節（地圖另外設定） */
+.floorplan { width: 100%; height: auto; display: block; background: #fff; border-radius: .6rem; }
+.floorplan .bldg { fill: #fff; stroke: #c3cfc7; stroke-width: 3; }
+.floorplan .corridor { fill: #eef3ef; }
+.floorplan .corridor-label { fill: #8b9a93; font-size: 15px; text-anchor: middle; dominant-baseline: middle; }
+.floorplan .room-dot { cursor: pointer; outline: none; }
+.floorplan .dot { stroke: #fff; stroke-width: 3; vector-effect: non-scaling-stroke;
+  filter: drop-shadow(0 1px 2px rgba(0, 0, 0, .35)); transition: transform .12s; transform-box: fill-box; transform-origin: center; }
+.floorplan .room-dot:hover .dot, .floorplan .room-dot:focus-visible .dot, .floorplan .room-dot.active .dot { transform: scale(1.35); }
+.floorplan .room-dot:focus-visible .dot, .floorplan .room-dot.active .dot,
+.floorplan .dot.here, .floorplan .room-dot.selected .dot { stroke: var(--ink); stroke-width: 4; }
+.floorplan .pulse { fill: rgba(167, 43, 41, .35); transform-box: fill-box; transform-origin: center; pointer-events: none;
+  animation: pulse 1.6s ease-out infinite; }
+@keyframes pulse { from { transform: scale(.45); opacity: 1; } to { transform: scale(1.4); opacity: 0; } }
+@media (prefers-reduced-motion: reduce) { .floorplan .pulse { animation: none; opacity: .6; } }
+.floorplan .dot-label { text-anchor: middle; font-weight: 700; fill: var(--ink); paint-order: stroke; stroke: #fff; stroke-width: 4px; }
+.floorplan.editable { cursor: crosshair; }
+.dot-classroom { fill: var(--c-classroom); } .dot-hall { fill: var(--c-hall); }
+.dot-meeting_room { fill: var(--c-meeting_room); } .dot-seminar_room { fill: var(--c-seminar_room); }
+.dot-lounge { fill: var(--c-lounge); } .dot-office { fill: var(--c-office); }
+.dot-research_room { fill: var(--c-research_room); } .dot-other { fill: var(--c-other); }
+.plan-toolbar { margin-bottom: .6rem; }
+.legend { display: flex; flex-wrap: wrap; gap: .9rem; font-size: .85rem; color: var(--muted); margin-bottom: .6rem; }
+.legend span { display: inline-flex; align-items: center; gap: .3rem; }
+.legend .swatch { width: .8rem; height: .8rem; border-radius: 50%; display: inline-block; box-shadow: 0 0 0 2px #fff, 0 0 0 3px var(--line); }
+.legend .dot-classroom { background: var(--c-classroom); } .legend .dot-hall { background: var(--c-hall); }
+.legend .dot-meeting_room { background: var(--c-meeting_room); } .legend .dot-seminar_room { background: var(--c-seminar_room); }
+.legend .dot-lounge { background: var(--c-lounge); } .legend .dot-office { background: var(--c-office); }
+.legend .dot-research_room { background: var(--c-research_room); }
+
+/* 點開的資訊卡 */
+.plan-popup { position: absolute; z-index: 5; width: 16.5rem; background: var(--surface); border: 1px solid var(--line);
+  border-radius: .75rem; box-shadow: 0 10px 30px rgba(14, 40, 30, .2); padding: .85rem .95rem; font-size: .9rem; }
+.pp-head { display: flex; justify-content: space-between; align-items: flex-start; gap: .5rem; margin-bottom: .35rem; }
+.pp-head strong { font-size: 1.1rem; }
+.pp-close { background: transparent; color: var(--muted); border: none; font-size: 1.35rem; line-height: 1; padding: 0 .2rem; }
+.pp-close:hover { background: transparent; color: var(--ink); }
+.pp-rows { display: grid; gap: .1rem; margin: .4rem 0 .5rem; }
+.pp-row { display: flex; gap: .5rem; }
+.pp-label { color: var(--muted); min-width: 4.5em; }
+.pp-more { margin-top: .6rem; width: 100%; justify-content: center; }
+
+@media (max-width: 56rem) {
+  .filter-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .detail-grid { grid-template-columns: 1fr; }
+}
+@media (max-width: 42rem) {
+  .spaces-nav { margin-top: -.75rem; }
+  .fields { grid-template-columns: 1fr; }
+  .filter-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .pano, .pano.pnlm-container { height: 18rem; }
+  .info div { grid-template-columns: 5.5rem 1fr; }
+}

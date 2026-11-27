@@ -1,0 +1,55 @@
+{% extends "spaces/_layout.html" %}
+{% from "spaces/_macros.html" import category_tag, room_title %}
+{% block title %}教室管理{% endblock %}
+
+{% block page %}
+<section class="intro page-head">
+  <div>
+    <h1>教室管理</h1>
+    <p>新增、修改、刪除教室資料與 360° 照片。已有預約或課程紀錄的教室刪除時會改為停用。</p>
+  </div>
+  <div class="actions">
+    <a class="button" href="/admin/rooms/new">新增教室</a>
+  </div>
+</section>
+<form class="search-row" method="get" action="/admin/rooms">
+  <input type="search" name="q" value="{{ q }}" placeholder="搜尋教室編號、廳名、管理單位" aria-label="搜尋教室">
+  <button type="submit">搜尋</button>
+</form>
+<p class="small">共 {{ rooms | length }} 間</p>
+<div class="table-wrap">
+  <table class="list">
+    <thead><tr><th>空間</th><th>位置</th><th>類型</th><th>人數</th><th>管理單位</th><th>360°</th><th></th></tr></thead>
+    <tbody>
+      {% for r in rooms %}
+      <tr {% if not r.active %}class="inactive"{% endif %}>
+        <td>{% if r.active %}<a href="/rooms/{{ r.id }}">{{ room_title(r) }}</a>{% else %}{{ room_title(r) }} <span class="tag gray">已停用</span>{% endif %}</td>
+        <td>{{ r.building }} {{ r.floor | floor }}</td>
+        <td>{{ category_tag(r.category) }}{% if not r.bookable %} <span class="tag gray">不借用</span>{% endif %}</td>
+        <td>{{ r.capacity }}</td>
+        <td>{{ r.manager or '' }}</td>
+        <td>{{ '有' if r.panorama_path else '' }}</td>
+        <td>
+          <div class="actions">
+            <a class="secondary" href="/admin/rooms/{{ r.id }}/edit">編輯</a>
+            {% if r.active %}
+            <form method="post" action="/admin/rooms/{{ r.id }}/delete" data-confirm="刪除 {{ r.code }}？已有預約或課程紀錄的教室會改為停用。">
+              <input type="hidden" name="csrf_token" value="{{ request.state.csrf_token }}">
+              <button type="submit" class="danger">刪除</button>
+            </form>
+            {% else %}
+            <form method="post" action="/admin/rooms/{{ r.id }}/restore">
+              <input type="hidden" name="csrf_token" value="{{ request.state.csrf_token }}">
+              <button type="submit" class="secondary">恢復</button>
+            </form>
+            {% endif %}
+          </div>
+        </td>
+      </tr>
+      {% else %}
+      <tr><td colspan="7">沒有資料</td></tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+{% endblock %}

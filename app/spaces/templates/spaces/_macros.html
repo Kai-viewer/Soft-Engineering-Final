@@ -1,0 +1,66 @@
+{% macro category_tag(cat) -%}
+<span class="tag cat-{{ cat }}">{{ cat | category }}</span>
+{%- endmacro %}
+
+{% macro room_title(r) -%}
+{{ r.code }}{% if r.alias %} <span class="alias">{{ r.alias }}</span>{% endif %}
+{%- endmacro %}
+
+{% macro floor_tabs(floors, current, base) -%}
+<nav class="tabs" aria-label="樓層">
+  {% for fl in floors %}<a href="{{ base }}?floor={{ fl }}" {% if fl == current %}aria-current="page"{% endif %}>{{ fl | floor }}</a>{% endfor %}
+</nav>
+{%- endmacro %}
+
+{% macro legend() -%}
+<div class="legend">
+  {% for k in ['classroom', 'hall', 'meeting_room', 'seminar_room', 'lounge', 'office', 'research_room'] %}
+  <span><i class="swatch dot-{{ k }}"></i>{{ CATEGORIES[k] }}</span>
+  {% endfor %}
+</div>
+{%- endmacro %}
+
+{#
+  樓層平面圖：plan 由 app/spaces/floorplan.py 的 build_plan() 產生。
+  每間教室是一個圓點；前台點開展開資訊卡（spaces/floorplan-popup.js），
+  後台 editable=true 時用來標記位置（spaces/floorplan-editor.js）。
+#}
+{#
+  同一個巨集也用來畫 Google 地圖（extra_class='site-map'）；
+  用 {% call floorplan(...) %}…{% endcall %} 可以在圖上疊 HTML（例如出入口按鈕）。
+#}
+{% macro floorplan(plan, editable=false, extra_class='', label='樓層平面圖') -%}
+<div class="plan-frame {{ extra_class }}" data-plan>
+ <div class="plan-wrap">
+ <div class="plan-stage">
+  <svg class="floorplan{% if editable %} editable{% endif %}" {% if editable %}id="floorplan-svg"{% endif %}
+       viewBox="0 0 {{ plan.W }} {{ plan.H }}" role="img" aria-label="{{ label }}" preserveAspectRatio="xMidYMid meet">
+    {% if plan.image %}
+      <image href="{{ plan.image }}" x="0" y="0" width="{{ plan.W }}" height="{{ plan.H }}"/>
+    {% else %}
+      <rect class="bldg" x="{{ (plan.W * 0.03)|round(1) }}" y="{{ (plan.H * 0.08)|round(1) }}" width="{{ (plan.W * 0.94)|round(1) }}" height="{{ (plan.H * 0.86)|round(1) }}" rx="12"/>
+      <rect class="corridor" x="{{ (plan.W * 0.05)|round(1) }}" y="{{ (plan.H * 0.47)|round(1) }}" width="{{ (plan.W * 0.9)|round(1) }}" height="{{ (plan.H * 0.08)|round(1) }}"/>
+      <text class="corridor-label" x="{{ (plan.W * 0.5)|round(1) }}" y="{{ (plan.H * 0.515)|round(1) }}">走廊（示意圖）</text>
+    {% endif %}
+    {% for d in plan.dots %}
+      {% if editable %}<g class="room-dot" data-id="{{ d.id }}">{% else %}<a href="/rooms/{{ d.id }}" class="room-dot" data-id="{{ d.id }}" aria-label="{{ d.label }}">{% endif %}
+        <title>{{ d.label }}</title>
+        {% if d.highlight %}<circle class="pulse" cx="{{ d.cx }}" cy="{{ d.cy }}" r="{{ plan.dot_r * 2.2 }}"/>{% endif %}
+        <circle class="dot dot-{{ d.category }}{% if d.highlight %} here{% endif %}" cx="{{ d.cx }}" cy="{{ d.cy }}" r="{{ plan.dot_r }}"/>
+        {% if not plan.image %}
+          <text class="dot-label" x="{{ d.cx }}" y="{{ (d.cy - plan.dot_r * 1.7)|round(1) }}" font-size="{{ (plan.font * 0.9)|round(1) }}">{{ d.code }}</text>
+        {% endif %}
+      {% if editable %}</g>{% else %}</a>{% endif %}
+    {% endfor %}
+  </svg>
+  {% if caller %}{{ caller() }}{% endif %}
+ </div>
+ </div>
+  {% if not editable %}
+  {# 資訊卡放在可捲動區域外面，才不會被裁切 #}
+  <div class="plan-popup" hidden role="dialog" aria-label="教室資訊"></div>
+  <script type="application/json" class="plan-info">{{ plan.info | tojson }}</script>
+  {% endif %}
+</div>
+{%- endmacro %}
+

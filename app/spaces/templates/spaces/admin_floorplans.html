@@ -1,0 +1,48 @@
+{% extends "spaces/_layout.html" %}
+{% from "spaces/_macros.html" import floor_tabs, legend, floorplan %}
+{% block title %}平面圖標記{% endblock %}
+
+{% block page %}
+<p class="small"><a href="/admin/rooms">← 回教室管理</a></p>
+<section class="intro">
+  <h1>平面圖標記</h1>
+  <p>預設使用管理學院院辦的官方平面圖。可上傳新圖取代，再點圖標記每間教室的位置。</p>
+</section>
+{{ floor_tabs(floors, current, '/admin/floorplans') }}
+
+<section class="panel wide-panel">
+  <h2>{{ current | floor }} 平面圖</h2>
+  <div class="actions">
+    <form method="post" action="/admin/floorplans/upload" enctype="multipart/form-data" class="actions">
+      <input type="hidden" name="csrf_token" value="{{ request.state.csrf_token }}">
+      <input type="hidden" name="floor" value="{{ current }}">
+      <input type="file" name="image" accept="image/jpeg,image/png" data-max-mb="30" required aria-label="平面圖圖檔">
+      <button type="submit">上傳並取代</button>
+    </form>
+    {% if has_image %}
+    <form method="post" action="/admin/floorplans/remove" data-confirm="移除 {{ current | floor }} 平面圖？教室位置會改為自動示意排列。">
+      <input type="hidden" name="csrf_token" value="{{ request.state.csrf_token }}">
+      <input type="hidden" name="floor" value="{{ current }}">
+      <button type="submit" class="danger">移除平面圖</button>
+    </form>
+    {% endif %}
+  </div>
+</section>
+
+<section class="panel wide-panel">
+  <h2>標記教室位置</h2>
+  <form method="post" action="/admin/floorplans/position" id="pos-form" class="actions">
+    <input type="hidden" name="csrf_token" value="{{ request.state.csrf_token }}">
+    <input type="hidden" name="floor" value="{{ current }}">
+    <input type="hidden" name="x" id="pos-x"><input type="hidden" name="y" id="pos-y">
+    <label for="pos-room">教室</label>
+    <select name="room_id" id="pos-room" data-selected="{{ selected }}">
+      {% for r in rooms %}<option value="{{ r.id }}">{{ r.code }} {{ r.alias or '' }}{% if r.map_x is none %}（未標記）{% endif %}</option>{% endfor %}
+    </select>
+  </form>
+  <p class="small">選好教室後在圖上點它的位置。點到既有圓點會選取該教室；要放在別的圓點上時按住 Shift 再點。</p>
+  {{ legend() }}
+  {{ floorplan(plan, editable=true) }}
+</section>
+{% endblock %}
+{% block page_scripts %}<script src="{{ asset('floorplan-editor.js') }}"></script>{% endblock %}

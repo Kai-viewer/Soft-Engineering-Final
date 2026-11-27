@@ -1,0 +1,639 @@
+{
+  "source": "https://www.ibs.ncnu.edu.tw/index.php/resources/space-classroom/352-109-20",
+  "scraped_at": "2026-11-27 14:26:36",
+  "steps": [
+    "要借用各教室之前應於三日前向管理單位申請借用",
+    "借用步驟：",
+    "1.查詢空教室",
+    "(1) 至管院官網查詢教室租借(請點我)；或者",
+    "(2) 至校務系統→查詢空教室，輸入欲借用時段(如：4bcd)是否無人上課。",
+    "2. 若管理單位為國企系：",
+    "👉請使用借教室系統",
+    "3. 若管理單位為管理學院辦公室：",
+    "(1)至管理學院辦公室洽詢工讀生，預約該教室。",
+    "(2)填寫管理學院場所借用申請單並交至系辦(亦可至系辦領表填寫)。",
+    "(3)待系主任簽章核可後，再將申請單交至管理學院辦公室。",
+    "4.若管理單位為管院外系：",
+    "👉請至各系系辦公室詢問"
+  ],
+  "links": [
+    {
+      "text": "教室租借(請點我)",
+      "url": "http://163.22.17.143:8080/mrbs/web/index.php"
+    },
+    {
+      "text": "借教室系統",
+      "url": "https://www.ibs.ncnu.edu.tw/index.php/resources/classroom-booking"
+    },
+    {
+      "text": "管理學院場所借用申請單",
+      "url": "https://cm.ncnu.edu.tw/var/file/66/1066/img/507/309219402.doc"
+    }
+  ],
+  "methods": {
+    "ibs_system": {
+      "manager_unit": "國企系",
+      "description": "使用國企系借教室系統線上預約",
+      "url": "https://www.ibs.ncnu.edu.tw/index.php/resources/classroom-booking"
+    },
+    "college_form": {
+      "manager_unit": "管理學院",
+      "description": "至管理學院辦公室洽詢工讀生預約 → 填寫「管理學院場所借用申請單」交系辦 → 系主任簽章核可後交回管理學院辦公室",
+      "url": "https://cm.ncnu.edu.tw/var/file/66/1066/img/507/309219402.doc"
+    },
+    "contact_secretary": {
+      "manager_unit": "管理學院祕書",
+      "description": "逕洽管院祕書",
+      "url": null
+    },
+    "contact_department": {
+      "manager_unit": "管院外系",
+      "description": "請至該系系辦公室詢問",
+      "url": null
+    },
+    "not_bookable": {
+      "manager_unit": null,
+      "description": "辦公室／研究室，非公開借用空間",
+      "url": null
+    },
+    "unknown": {
+      "manager_unit": null,
+      "description": "網站未註明管理單位，需另行確認",
+      "url": null
+    }
+  },
+  "room_table": [
+    {
+      "manager_unit": "國企系",
+      "room_code": "管206",
+      "name_in_table": "管206教室",
+      "alias": null,
+      "capacity": 40,
+      "equipment": [
+        {
+          "name": "投影機",
+          "qty": null
+        },
+        {
+          "name": "手動式布幕",
+          "qty": null
+        }
+      ]
+    },
+    {
+      "manager_unit": "國企系",
+      "room_code": "管207",
+      "name_in_table": "管207教室",
+      "alias": null,
+      "capacity": 40,
+      "equipment": [
+        {
+          "name": "投影機",
+          "qty": null
+        },
+        {
+          "name": "手動式布幕",
+          "qty": null
+        }
+      ]
+    },
+    {
+      "manager_unit": "國企系",
+      "room_code": "管350",
+      "name_in_table": "管350小研討室",
+      "alias": null,
+      "capacity": 20,
+      "equipment": [
+        {
+          "name": "投影機",
+          "qty": null
+        },
+        {
+          "name": "移動式白板",
+          "qty": 1
+        }
+      ]
+    },
+    {
+      "manager_unit": "國企系",
+      "room_code": "管432",
+      "name_in_table": "管432會議室",
+      "alias": null,
+      "capacity": 20,
+      "equipment": [
+        {
+          "name": "投影機",
+          "qty": null
+        },
+        {
+          "name": "投影螢幕",
+          "qty": null
+        },
+        {
+          "name": "無線網路",
+          "qty": null
+        },
+        {
+          "name": "有線網路",
+          "qty": null
+        },
+        {
+          "name": "玻璃白板",
+          "qty": null
+        },
+        {
+          "name": "冷氣與電扇",
+          "qty": null
+        }
+      ]
+    },
+    {
+      "manager_unit": "管理學院",
+      "room_code": "管213",
+      "name_in_table": "管213個案教室",
+      "alias": null,
+      "capacity": 50,
+      "equipment": [
+        {
+          "name": "投影機",
+          "qty": null
+        },
+        {
+          "name": "布幕",
+          "qty": null
+        },
+        {
+          "name": "無線麥克風",
+          "qty": 1
+        },
+        {
+          "name": "擴大機",
+          "qty": null
+        }
+      ]
+    },
+    {
+      "manager_unit": "管理學院",
+      "room_code": "管215",
+      "name_in_table": "管215個案教室",
+      "alias": null,
+      "capacity": 100,
+      "equipment": [
+        {
+          "name": "投影機",
+          "qty": null
+        },
+        {
+          "name": "布幕",
+          "qty": 2
+        },
+        {
+          "name": "資訊講桌",
+          "qty": null
+        },
+        {
+          "name": "無線麥克風",
+          "qty": 2
+        }
+      ]
+    },
+    {
+      "manager_unit": "管理學院",
+      "room_code": "管226",
+      "name_in_table": "管226巴菲特廳",
+      "alias": "巴菲特廳",
+      "capacity": 80,
+      "equipment": [
+        {
+          "name": "投影機",
+          "qty": null
+        },
+        {
+          "name": "布幕",
+          "qty": null
+        },
+        {
+          "name": "資訊講桌",
+          "qty": null
+        },
+        {
+          "name": "無線麥克風",
+          "qty": 1
+        },
+        {
+          "name": "冷氣",
+          "qty": null
+        }
+      ]
+    },
+    {
+      "manager_unit": "管理學院",
+      "room_code": "管228",
+      "name_in_table": "管228賈伯斯廳",
+      "alias": "賈伯斯廳",
+      "capacity": 80,
+      "equipment": [
+        {
+          "name": "投影機",
+          "qty": null
+        },
+        {
+          "name": "布幕",
+          "qty": null
+        },
+        {
+          "name": "資訊講桌",
+          "qty": null
+        },
+        {
+          "name": "無線麥克風",
+          "qty": 1
+        },
+        {
+          "name": "冷氣",
+          "qty": null
+        },
+        {
+          "name": "擴大機",
+          "qty": null
+        }
+      ]
+    },
+    {
+      "manager_unit": "管理學院",
+      "room_code": "管241",
+      "name_in_table": "管241杜拉克廳",
+      "alias": "杜拉克廳",
+      "capacity": 100,
+      "equipment": [
+        {
+          "name": "投影機",
+          "qty": null
+        },
+        {
+          "name": "布幕",
+          "qty": null
+        },
+        {
+          "name": "資訊講桌",
+          "qty": null
+        },
+        {
+          "name": "無線麥克風",
+          "qty": 1
+        },
+        {
+          "name": "冷氣",
+          "qty": null
+        }
+      ]
+    },
+    {
+      "manager_unit": "管理學院",
+      "room_code": "管260",
+      "name_in_table": "管260大前研一廳",
+      "alias": "大前研一廳",
+      "capacity": 120,
+      "equipment": [
+        {
+          "name": "投影機",
+          "qty": null
+        },
+        {
+          "name": "布幕",
+          "qty": null
+        },
+        {
+          "name": "資訊講桌",
+          "qty": null
+        },
+        {
+          "name": "無線麥克風",
+          "qty": 1
+        },
+        {
+          "name": "冷氣",
+          "qty": null
+        },
+        {
+          "name": "白板",
+          "qty": 1
+        }
+      ]
+    },
+    {
+      "manager_unit": "管理學院",
+      "room_code": "管268",
+      "name_in_table": "管268史密斯廳",
+      "alias": "史密斯廳",
+      "capacity": 270,
+      "equipment": [
+        {
+          "name": "投影機",
+          "qty": null
+        },
+        {
+          "name": "布幕",
+          "qty": null
+        },
+        {
+          "name": "影音環控系統",
+          "qty": null
+        },
+        {
+          "name": "擴大機",
+          "qty": null
+        },
+        {
+          "name": "無線麥克風",
+          "qty": 9
+        },
+        {
+          "name": "白板",
+          "qty": 2
+        },
+        {
+          "name": "資訊講桌",
+          "qty": null
+        },
+        {
+          "name": "冷氣",
+          "qty": null
+        }
+      ]
+    },
+    {
+      "manager_unit": "管理學院",
+      "room_code": "管371",
+      "name_in_table": "管371寇斯廳",
+      "alias": "寇斯廳",
+      "capacity": 250,
+      "equipment": [
+        {
+          "name": "投影機",
+          "qty": null
+        },
+        {
+          "name": "布幕",
+          "qty": null
+        },
+        {
+          "name": "影音環控系統",
+          "qty": null
+        },
+        {
+          "name": "擴大機",
+          "qty": null
+        },
+        {
+          "name": "無線麥克風",
+          "qty": 4
+        },
+        {
+          "name": "白板",
+          "qty": 1
+        },
+        {
+          "name": "資訊講桌",
+          "qty": null
+        },
+        {
+          "name": "冷氣",
+          "qty": null
+        }
+      ]
+    },
+    {
+      "manager_unit": "管理學院",
+      "room_code": "管443",
+      "name_in_table": "管443第二會議室",
+      "alias": null,
+      "capacity": 60,
+      "equipment": [
+        {
+          "name": "投影機",
+          "qty": null
+        },
+        {
+          "name": "布幕",
+          "qty": null
+        },
+        {
+          "name": "擴大機",
+          "qty": null
+        },
+        {
+          "name": "無線麥克風",
+          "qty": 1
+        },
+        {
+          "name": "桌上額頸麥克風",
+          "qty": 12
+        },
+        {
+          "name": "冷氣",
+          "qty": null
+        }
+      ]
+    },
+    {
+      "manager_unit": "管理學院",
+      "room_code": "管427",
+      "name_in_table": "管427第三會議室",
+      "alias": null,
+      "capacity": 40,
+      "equipment": [
+        {
+          "name": "投影機",
+          "qty": null
+        },
+        {
+          "name": "布幕",
+          "qty": null
+        },
+        {
+          "name": "冷氣",
+          "qty": null
+        }
+      ]
+    },
+    {
+      "manager_unit": "管理學院",
+      "room_code": "管B24",
+      "name_in_table": "管B24教室",
+      "alias": null,
+      "capacity": 48,
+      "equipment": []
+    },
+    {
+      "manager_unit": "資管系",
+      "room_code": "管203",
+      "name_in_table": "管203教室",
+      "alias": null,
+      "capacity": 40,
+      "equipment": [
+        {
+          "name": "投影機",
+          "qty": null
+        },
+        {
+          "name": "手動式布幕",
+          "qty": null
+        }
+      ]
+    },
+    {
+      "manager_unit": "資管系",
+      "room_code": "管204",
+      "name_in_table": "管204教室",
+      "alias": null,
+      "capacity": 40,
+      "equipment": [
+        {
+          "name": "投影機",
+          "qty": null
+        },
+        {
+          "name": "手動式布幕",
+          "qty": null
+        }
+      ]
+    },
+    {
+      "manager_unit": "資管系",
+      "room_code": "管451",
+      "name_in_table": "管451小研討室",
+      "alias": null,
+      "capacity": 20,
+      "equipment": [
+        {
+          "name": "投影機",
+          "qty": null
+        },
+        {
+          "name": "移動式白板",
+          "qty": 1
+        }
+      ]
+    },
+    {
+      "manager_unit": "財金系",
+      "room_code": "管212",
+      "name_in_table": "管212教室",
+      "alias": null,
+      "capacity": 40,
+      "equipment": [
+        {
+          "name": "投影機",
+          "qty": null
+        },
+        {
+          "name": "手動式布幕",
+          "qty": null
+        }
+      ]
+    },
+    {
+      "manager_unit": "財金系",
+      "room_code": "管217",
+      "name_in_table": "管217小研討室",
+      "alias": null,
+      "capacity": 20,
+      "equipment": [
+        {
+          "name": "投影機",
+          "qty": null
+        },
+        {
+          "name": "移動式白板",
+          "qty": 1
+        }
+      ]
+    },
+    {
+      "manager_unit": "經濟系",
+      "room_code": "管210",
+      "name_in_table": "管210教室",
+      "alias": null,
+      "capacity": 40,
+      "equipment": [
+        {
+          "name": "投影機",
+          "qty": null
+        },
+        {
+          "name": "手動式布幕",
+          "qty": null
+        }
+      ]
+    },
+    {
+      "manager_unit": "經濟系",
+      "room_code": "管329",
+      "name_in_table": "管329",
+      "alias": null,
+      "capacity": 65,
+      "equipment": [
+        {
+          "name": "投影機",
+          "qty": null
+        },
+        {
+          "name": "布幕",
+          "qty": null
+        }
+      ]
+    },
+    {
+      "manager_unit": "經濟系",
+      "room_code": "管320",
+      "name_in_table": "管320小研討室",
+      "alias": null,
+      "capacity": 20,
+      "equipment": [
+        {
+          "name": "投影機",
+          "qty": null
+        },
+        {
+          "name": "移動式白板",
+          "qty": 1
+        }
+      ]
+    },
+    {
+      "manager_unit": "經濟系",
+      "room_code": "管316",
+      "name_in_table": "管316小研討室",
+      "alias": null,
+      "capacity": 10,
+      "equipment": [
+        {
+          "name": "白板",
+          "qty": null
+        }
+      ]
+    },
+    {
+      "manager_unit": "觀光系",
+      "room_code": "管331",
+      "name_in_table": "管331",
+      "alias": null,
+      "capacity": 130,
+      "equipment": [
+        {
+          "name": "投影機",
+          "qty": null
+        },
+        {
+          "name": "布幕",
+          "qty": null
+        },
+        {
+          "name": "電腦",
+          "qty": null
+        }
+      ]
+    }
+  ]
+}

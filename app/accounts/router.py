@@ -114,8 +114,9 @@ def login(
         csrf_token=secrets.token_urlsafe(32),
         expires_at=datetime.now(timezone.utc) + SESSION_DURATION,
     ))
+    landing = "/admin/rooms" if user.role == "admin" else "/"  # 管理員直接進管理頁
     db.commit()
-    response = RedirectResponse("/", status_code=303)
+    response = RedirectResponse(landing, status_code=303)
     response.set_cookie(
         COOKIE_NAME, token, httponly=True, samesite="lax",
         secure=os.getenv("COOKIE_SECURE", "false").lower() == "true",

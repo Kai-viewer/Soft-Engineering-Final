@@ -1,0 +1,73 @@
+{% extends "spaces/_layout.html" %}
+{% from "spaces/_macros.html" import category_tag, room_title, floor_tabs, legend, floorplan %}
+{% block title %}樓層平面圖{% endblock %}
+
+{% block page %}
+<section class="intro">
+  <h1>樓層平面圖</h1>
+  <p>選擇樓層，地圖和平面圖會標出該層每間教室的位置。每間教室是一個圓點，點開才會展開教室資訊。</p>
+</section>
+{{ floor_tabs(floors, current, '/rooms/floorplan') }}
+
+<section class="panel wide-panel" id="map" aria-labelledby="map-title">
+  <div class="map-head">
+    <div>
+      <h2 id="map-title">{{ current | floor }} 教室在大樓的位置</h2>
+      <p class="small">Google 地圖衛星圖。圓點由官方平面圖換算，為大約位置；按出入口按鈕可切換到該樓層。</p>
+    </div>
+    {{ legend() }}
+  </div>
+  {% if site_map %}
+    {% call floorplan(site_map, extra_class='site-map', label='Google 地圖：' ~ (current | floor) ~ ' 教室位置') %}
+      {% for e in site_map.entrances %}
+      <a class="entrance entrance-{{ e.side }}{% if e.floor == current %} here{% endif %}"
+         style="left: {{ e.x }}%; top: {{ e.y }}%" href="/rooms/floorplan?floor={{ e.floor }}#map"
+         {% if e.floor == current %}aria-current="page"{% endif %}>
+        <span class="door" aria-hidden="true"></span>{{ e.title }}<b>{{ e.floor | floor }}</b>
+      </a>
+      {% endfor %}
+      <a class="map-open" href="{{ map_info.google_url }}" target="_blank" rel="noopener">在 Google 地圖開啟 ↗</a>
+    {% endcall %}
+    {% if not site_map.dots %}<p class="small">此樓層沒有可查詢的空間，地圖上只標出入口。</p>{% endif %}
+  {% else %}
+    <div class="site-map-static">
+      <img src="{{ map_info.image }}" alt="Google 地圖衛星影像：管理學院大樓" width="{{ map_info.width }}" height="{{ map_info.height }}">
+    </div>
+    <p class="small">此樓層的平面圖已由管理員更換，無法換算地圖上的位置，請看下方平面圖。</p>
+  {% endif %}
+  <p class="attribution">{{ map_info.attribution }}</p>
+</section>
+
+<section class="panel wide-panel" id="plan">
+  <h2>{{ current | floor }} 平面圖</h2>
+  {{ floorplan(plan) }}
+  {% if is_official %}
+    <p class="small">平面圖：<a href="{{ official_url }}" target="_blank" rel="noopener">管理學院院辦〈管理學院大樓樓層平面圖〉</a>（示意圖，比例與位置經簡化，實際以現場為準）</p>
+  {% elif not has_image %}
+    <p class="small">此樓層沒有平面圖，目前為依教室編號自動排列的示意圖，非實際格局。</p>
+  {% endif %}
+  {% if plan.unplaced %}
+    <p class="small">尚未標記位置：{% for r in plan.unplaced %}<a href="/rooms/{{ r.id }}">{{ r.code }}</a>{% if not loop.last %}、{% endif %}{% endfor %}</p>
+  {% endif %}
+</section>
+
+<h2>{{ current | floor }} 的空間</h2>
+<div class="table-wrap">
+  <table class="list">
+    <thead><tr><th>空間</th><th>類型</th><th>人數</th><th>管理單位</th></tr></thead>
+    <tbody>
+      {% for r in rooms %}
+      <tr>
+        <td><a href="/rooms/{{ r.id }}">{{ room_title(r) }}</a></td>
+        <td>{{ category_tag(r.category) }}</td>
+        <td>{{ r.capacity }}</td>
+        <td>{{ r.manager or '' }}</td>
+      </tr>
+      {% else %}
+      <tr><td colspan="4">此樓層沒有可查詢的空間（5F 為教師研究室）。</td></tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+{% endblock %}
+{% block page_scripts %}<script src="{{ asset('floorplan-popup.js') }}"></script>{% endblock %}

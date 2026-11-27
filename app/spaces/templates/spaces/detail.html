@@ -1,0 +1,95 @@
+{% extends "spaces/_layout.html" %}
+{% from "spaces/_macros.html" import category_tag, room_title, floorplan %}
+{% block title %}{{ room.code }}{% endblock %}
+{% block page_head %}
+{% if room.panorama_path %}<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pannellum@2.5.6/build/pannellum.css">{% endif %}
+{% endblock %}
+{% block page %}
+{% set user = request.state.user | default(none) %}
+{% if user and user.role == 'admin' %}
+<p class="small"><a href="/admin/rooms">← 回教室管理</a></p>
+{% else %}
+<p class="small"><a href="/rooms">← 回空間查詢</a></p>
+{% endif %}
+<section class="intro">
+  <h1>{{ room_title(room) }}</h1>
+  <div class="tags">{{ category_tag(room.category) }}{% if not room.bookable %}<span class="tag gray">不開放借用</span>{% endif %}</div>
+</section>
+
+<div class="detail-grid">
+  <section class="panel">
+    <h2>基本資訊</h2>
+    <dl class="info">
+      <div><dt>大樓 / 樓層</dt><dd>{{ room.building }} {{ room.floor | floor }}</dd></div>
+      {% if room.room_type %}<div><dt>類型</dt><dd>{{ room.room_type }}</dd></div>{% endif %}
+      <div><dt>可容納人數</dt><dd>{{ room.capacity }} 人</dd></div>
+      <div><dt>管理單位</dt><dd>{{ room.manager or '未註明' }}</dd></div>
+      {% if room.location %}<div><dt>所在位置</dt><dd>{{ room.location }}</dd></div>{% endif %}
+      {% if room.usage_note %}<div><dt>使用方式</dt><dd>{{ room.usage_note }}</dd></div>{% endif %}
+      {% if room.note %}<div><dt>備註</dt><dd>{{ room.note }}</dd></div>{% endif %}
+      {% if room.description %}<div><dt>說明</dt><dd class="pre">{{ room.description }}</dd></div>{% endif %}
+    </dl>
+    <h3>設備</h3>
+    <div class="chips">
+      {% for fa in room.facilities %}<span class="chip">{{ fa.name }}{% if fa.quantity %} ×{{ fa.quantity }}{% endif %}</span>
+      {% else %}<span class="small">未提供設備資料</span>{% endfor %}
+    </div>
+  </section>
+
+  <aside class="panel borrow">
+    <h2>如何借用</h2>
+    {% if room.bookable and method %}
+      <p><strong>{{ method.name }}</strong></p>
+      <p>{{ method.description }}</p>
+      <p class="small">請於使用日 3 日前向管理單位申請；可先在校務系統「查詢空教室」確認時段無人上課。</p>
+      {% if method.url %}<p><a class="secondary" href="{{ method.url }}" target="_blank" rel="noopener">前往借用 ↗</a></p>{% endif %}
+    {% elif room.bookable %}
+      <p>網站未註明借用方式，請洽管理單位。</p>
+    {% else %}
+      <p>此空間為辦公室或研究室，不開放一般借用。</p>
+    {% endif %}
+    {% if room.bookable %}
+    <div class="online">
+      <h3>線上預約</h3>
+      {% if user %}
+        <p class="small">線上預約由預約借用模組提供（開發中）。</p>
+        <button type="button" disabled>預約此空間</button>
+      {% else %}
+        <p class="small">線上預約需要已通過審核的帳號。</p>
+        <a class="secondary" href="/login">登入後預約</a>
+      {% endif %}
+    </div>
+    {% endif %}
+  </aside>
+</div>
+
+<section class="panel wide-panel">
+  <h2>360° 全景照片</h2>
+  {% if room.panorama_path %}
+    <div id="panorama" class="pano" data-src="{{ room.panorama_path }}"
+         data-title="{{ room.code }}{% if room.alias %} {{ room.alias }}{% endif %}"></div>
+    <p class="small">拖曳旋轉視角、滾輪縮放，左上角可全螢幕。</p>
+  {% else %}
+    <div class="pano-empty">此空間尚未提供 360° 全景照片</div>
+  {% endif %}
+</section>
+
+{% if plan %}
+<section class="panel wide-panel">
+  <h2>在平面圖上的位置（{{ room.floor | floor }}）</h2>
+  {{ floorplan(plan) }}
+  <p class="small">{% if plan.image %}閃爍的圓點是這間教室；點其他圓點可看該教室資訊。{% else %}示意圖，非實際格局。{% endif %}
+    {% if user and user.role == 'admin' %}<a href="/admin/floorplans?floor={{ room.floor }}&room={{ room.id }}">到平面圖標記 →</a>
+    {% else %}<a href="/rooms/floorplan?floor={{ room.floor }}">看整層平面圖 →</a>{% endif %}</p>
+</section>
+{% endif %}
+
+{% if room.source_url %}<p class="small">資料來源：<a href="{{ room.source_url }}" target="_blank" rel="noopener">國企系網站</a></p>{% endif %}
+{% endblock %}
+{% block page_scripts %}
+{% if plan %}<script src="{{ asset('floorplan-popup.js') }}"></script>{% endif %}
+{% if room.panorama_path %}
+<script src="https://cdn.jsdelivr.net/npm/pannellum@2.5.6/build/pannellum.js"></script>
+<script src="{{ asset('panorama.js') }}"></script>
+{% endif %}
+{% endblock %}

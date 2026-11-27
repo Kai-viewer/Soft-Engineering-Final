@@ -1,0 +1,2055 @@
+{
+  "source": "https://www.ibs.ncnu.edu.tw/index.php/resources/space-classroom",
+  "scraped_at": "2026-11-27 14:26:36",
+  "count": 46,
+  "bookable_count": 40,
+  "data_issues": [
+    "管443：人數不一致（空間頁 50 人 / 借用方法表格 60 人），採用空間頁",
+    "管350：詳細頁沒寫管理單位，改用借用方法表格的「國企系」",
+    "管331：人數不一致（空間頁 100 人 / 借用方法表格 130 人），採用空間頁",
+    "管329：人數不一致（空間頁 60 人 / 借用方法表格 65 人），採用空間頁",
+    "管320：人數不一致（空間頁 15 人 / 借用方法表格 20 人），採用空間頁",
+    "管B24：只出現在借用方法表格，沒有獨立空間頁（已補入，source_url 指向借用方法文章）"
+  ],
+  "spaces": [
+    {
+      "article_id": 530,
+      "room_code": "管B11",
+      "building": "管理學院",
+      "room_no": "B11",
+      "floor": -1,
+      "room_type": "一般教室",
+      "alias": null,
+      "category": "classroom",
+      "bookable": true,
+      "capacity": 100,
+      "manager": "管理學院辦公室",
+      "booking_method": "college_form",
+      "location": "管理學院B1樓",
+      "equipment": [
+        {
+          "name": "投影機",
+          "qty": null
+        },
+        {
+          "name": "投影螢幕",
+          "qty": null
+        },
+        {
+          "name": "無線網路",
+          "qty": null
+        },
+        {
+          "name": "白板",
+          "qty": null
+        },
+        {
+          "name": "冷氣與電扇",
+          "qty": null
+        },
+        {
+          "name": "有線麥克風",
+          "qty": null
+        }
+      ],
+      "usage": "需先向管院辦公室借鑰匙，多為上課使用的教室。（上課使用優先）",
+      "note": null,
+      "description": null,
+      "images": [],
+      "source_title": "管 B11/一般教室/100人",
+      "source_url": "https://www.ibs.ncnu.edu.tw/index.php/resources/space-classroom/530-109-21",
+      "space_id": 1
+    },
+    {
+      "article_id": 777,
+      "room_code": "管B15",
+      "building": "管理學院",
+      "room_no": "B15",
+      "floor": -1,
+      "room_type": "未來教室",
+      "alias": null,
+      "category": "classroom",
+      "bookable": true,
+      "capacity": 40,
+      "manager": "管理學院辦公室",
+      "booking_method": "college_form",
+      "location": "管理學院地下1樓",
+      "equipment": [
+        {
+          "name": "投影機",
+          "qty": null
+        },
+        {
+          "name": "投影螢幕",
+          "qty": null
+        },
+        {
+          "name": "無線網路",
+          "qty": null
+        },
+        {
+          "name": "白板",
+          "qty": null
+        },
+        {
+          "name": "冷氣與電扇",
+          "qty": null
+        },
+        {
+          "name": "有線麥克風",
+          "qty": null
+        }
+      ],
+      "usage": "需先向管院辦公室借鑰匙，多為上課使用的教室。（上課使用優先）",
+      "note": null,
+      "description": null,
+      "images": [],
+      "source_title": "管 B15/未來教室/40人",
+      "source_url": "https://www.ibs.ncnu.edu.tw/index.php/resources/space-classroom/777-b15-30",
+      "space_id": 2
+    },
+    {
+      "article_id": null,
+      "room_code": "管B24",
+      "building": "管理學院",
+      "room_no": "B24",
+      "floor": -1,
+      "room_type": "教室",
+      "alias": null,
+      "category": "classroom",
+      "bookable": true,
+      "capacity": 48,
+      "manager": "管理學院辦公室",
+      "booking_method": "college_form",
+      "location": null,
+      "equipment": [],
+      "usage": null,
+      "note": "僅見於借用方法表格",
+      "description": null,
+      "images": [],
+      "source_title": "管B24教室",
+      "source_url": "https://www.ibs.ncnu.edu.tw/index.php/resources/space-classroom/352-109-20",
+      "space_id": 3
+    },
+    {
+      "article_id": 531,
+      "room_code": "管112",
+      "building": "管理學院",
+      "room_no": "112",
+      "floor": 1,
+      "room_type": "一般教室",
+      "alias": null,
+      "category": "classroom",
+      "bookable": true,
+      "capacity": 50,
+      "manager": "管理學院辦公室",
+      "booking_method": "college_form",
+      "location": "管理學院1樓",
+      "equipment": [
+        {
+          "name": "投影機",
+          "qty": null
+        },
+        {
+          "name": "投影螢幕",
+          "qty": null
+        },
+        {
+          "name": "無線網路",
+          "qty": null
+        },
+        {
+          "name": "白板",
+          "qty": null
+        },
+        {
+          "name": "冷氣與電扇",
+          "qty": null
+        },
+        {
+          "name": "有線麥克風",
+          "qty": null
+        }
+      ],
+      "usage": "需先向管院辦公室借鑰匙，多為上課使用的教室。（上課使用優先）",
+      "note": null,
+      "description": null,
+      "images": [],
+      "source_title": "管112/一般教室/50人",
+      "source_url": "https://www.ibs.ncnu.edu.tw/index.php/resources/space-classroom/531-109-22",
+      "space_id": 4
+    },
+    {
+      "article_id": 797,
+      "room_code": "管113",
+      "building": "管理學院",
+      "room_no": "113",
+      "floor": 1,
+      "room_type": "一般教室",
+      "alias": null,
+      "category": "classroom",
+      "bookable": true,
+      "capacity": 50,
+      "manager": "觀餐系辦公室",
+      "booking_method": "contact_department",
+      "location": "管理學院1樓",
+      "equipment": [
+        {
+          "name": "黑板",
+          "qty": null
+        },
+        {
+          "name": "冷氣與電扇",
+          "qty": null
+        },
+        {
+          "name": "無線網路",
+          "qty": null
+        },
+        {
+          "name": "投影機",
+          "qty": null
+        },
+        {
+          "name": "布幕",
+          "qty": null
+        },
+        {
+          "name": "智慧講桌",
+          "qty": null
+        }
+      ],
+      "usage": "需先向觀餐系借鑰匙，多為上課使用的教室。（上課使用優先）",
+      "note": null,
+      "description": null,
+      "images": [],
+      "source_title": "管113/一般教室/50人",
+      "source_url": "https://www.ibs.ncnu.edu.tw/index.php/resources/space-classroom/797-113-050",
+      "space_id": 5
+    },
+    {
+      "article_id": 532,
+      "room_code": "管115",
+      "building": "管理學院",
+      "room_no": "115",
+      "floor": 1,
+      "room_type": "一般教室",
+      "alias": null,
+      "category": "classroom",
+      "bookable": true,
+      "capacity": 50,
+      "manager": "管理學院辦公室",
+      "booking_method": "college_form",
+      "location": "管理學院1樓",
+      "equipment": [
+        {
+          "name": "投影機",
+          "qty": null
+        },
+        {
+          "name": "投影螢幕",
+          "qty": null
+        },
+        {
+          "name": "無線網路",
+          "qty": null
+        },
+        {
+          "name": "白板",
+          "qty": null
+        },
+        {
+          "name": "冷氣與電扇",
+          "qty": null
+        },
+        {
+          "name": "有線麥克風",
+          "qty": null
+        }
+      ],
+      "usage": "需先向管院辦公室借鑰匙，多為上課使用的教室。（上課使用優先）",
+      "note": null,
+      "description": null,
+      "images": [],
+      "source_title": "管115/一般教室/50人",
+      "source_url": "https://www.ibs.ncnu.edu.tw/index.php/resources/space-classroom/532-109-23",
+      "space_id": 6
+    },
+    {
+      "article_id": 798,
+      "room_code": "管203",
+      "building": "管理學院",
+      "room_no": "203",
+      "floor": 2,
+      "room_type": "一般教室",
+      "alias": null,
+      "category": "classroom",
+      "bookable": true,
+      "capacity": 40,
+      "manager": "資管系辦公室",
+      "booking_method": "contact_department",
+      "location": "管理學院2樓",
+      "equipment": [
+        {
+          "name": "白板",
+          "qty": null
+        },
+        {
+          "name": "冷氣與電扇",
+          "qty": null
+        },
+        {
+          "name": "無線網路",
+          "qty": null
+        },
+        {
+          "name": "投影機",
+          "qty": null
+        },
+        {
+          "name": "布幕",
+          "qty": null
+        },
+        {
+          "name": "智慧講桌",
+          "qty": null
+        }
+      ],
+      "usage": "需先向資管系借鑰匙，多為上課使用的教室。（上課使用優先）",
+      "note": null,
+      "description": null,
+      "images": [],
+      "source_title": "管203/一般教室/40人",
+      "source_url": "https://www.ibs.ncnu.edu.tw/index.php/resources/space-classroom/798-203-40",
+      "space_id": 7
+    },
+    {
+      "article_id": 799,
+      "room_code": "管204",
+      "building": "管理學院",
+      "room_no": "204",
+      "floor": 2,
+      "room_type": "一般教室",
+      "alias": null,
+      "category": "classroom",
+      "bookable": true,
+      "capacity": 40,
+      "manager": "資管系辦公室",
+      "booking_method": "contact_department",
+      "location": "管理學院2樓",
+      "equipment": [
+        {
+          "name": "白板",
+          "qty": null
+        },
+        {
+          "name": "冷氣與電扇",
+          "qty": null
+        },
+        {
+          "name": "無線網路",
+          "qty": null
+        },
+        {
+          "name": "投影機",
+          "qty": null
+        },
+        {
+          "name": "布幕",
+          "qty": null
+        },
+        {
+          "name": "智慧講桌",
+          "qty": null
+        }
+      ],
+      "usage": "需先向資管系借鑰匙，多為上課使用的教室。（上課使用優先）",
+      "note": null,
+      "description": null,
+      "images": [],
+      "source_title": "管204/一般教室/40人",
+      "source_url": "https://www.ibs.ncnu.edu.tw/index.php/resources/space-classroom/799-204-40",
+      "space_id": 8
+    },
+    {
+      "article_id": 339,
+      "room_code": "管206",
+      "building": "管理學院",
+      "room_no": "206",
+      "floor": 2,
+      "room_type": "一般教室",
+      "alias": null,
+      "category": "classroom",
+      "bookable": true,
+      "capacity": 40,
+      "manager": "國企系辦公室",
+      "booking_method": "ibs_system",
+      "location": "管理學院2樓",
+      "equipment": [
+        {
+          "name": "投影機",
+          "qty": null
+        },
+        {
+          "name": "投影螢幕",
+          "qty": null
+        },
+        {
+          "name": "無線網路",
+          "qty": null
+        },
+        {
+          "name": "白板",
+          "qty": null
+        },
+        {
+          "name": "冷氣與電扇",
+          "qty": null
+        },
+        {
+          "name": "有線麥克風",
+          "qty": null
+        }
+      ],
+      "usage": "需先向國企系辦借鑰匙，多為上課使用的教室。（上課使用優先）",
+      "note": null,
+      "description": null,
+      "images": [],
+      "source_title": "管206/一般教室/40人",
+      "source_url": "https://www.ibs.ncnu.edu.tw/index.php/resources/space-classroom/339-109-7",
+      "space_id": 9
+    },
+    {
+      "article_id": 343,
+      "room_code": "管207",
+      "building": "管理學院",
+      "room_no": "207",
+      "floor": 2,
+      "room_type": "一般教室",
+      "alias": null,
+      "category": "classroom",
+      "bookable": true,
+      "capacity": 40,
+      "manager": "國企系辦公室",
+      "booking_method": "ibs_system",
+      "location": "管理學院2樓",
+      "equipment": [
+        {
+          "name": "投影機",
+          "qty": null
+        },
+        {
+          "name": "投影螢幕",
+          "qty": null
+        },
+        {
+          "name": "無線網路",
+          "qty": null
+        },
+        {
+          "name": "白板",
+          "qty": null
+        },
+        {
+          "name": "冷氣與電扇",
+          "qty": null
+        },
+        {
+          "name": "有線麥克風",
+          "qty": null
+        }
+      ],
+      "usage": "需先向國企系辦借鑰匙，多為上課使用的教室。（上課使用優先）",
+      "note": null,
+      "description": null,
+      "images": [],
+      "source_title": "管207/一般教室/40人",
+      "source_url": "https://www.ibs.ncnu.edu.tw/index.php/resources/space-classroom/343-109-11",
+      "space_id": 10
+    },
+    {
+      "article_id": 800,
+      "room_code": "管210",
+      "building": "管理學院",
+      "room_no": "210",
+      "floor": 2,
+      "room_type": "一般教室",
+      "alias": null,
+      "category": "classroom",
+      "bookable": true,
+      "capacity": 40,
+      "manager": "經濟系辦公室",
+      "booking_method": "contact_department",
+      "location": "管理學院2樓",
+      "equipment": [
+        {
+          "name": "黑板",
+          "qty": null
+        },
+        {
+          "name": "冷氣與電扇",
+          "qty": null
+        },
+        {
+          "name": "無線網路",
+          "qty": null
+        },
+        {
+          "name": "投影機",
+          "qty": null
+        },
+        {
+          "name": "布幕",
+          "qty": null
+        },
+        {
+          "name": "智慧講桌",
+          "qty": null
+        }
+      ],
+      "usage": "需先向經濟系借鑰匙，多為上課使用的教室。（上課使用優先）",
+      "note": null,
+      "description": null,
+      "images": [],
+      "source_title": "管210/一般教室/40人",
+      "source_url": "https://www.ibs.ncnu.edu.tw/index.php/resources/space-classroom/800-210-40",
+      "space_id": 11
+    },
+    {
+      "article_id": 778,
+      "room_code": "管212",
+      "building": "管理學院",
+      "room_no": "212",
+      "floor": 2,
+      "room_type": "一般教室",
+      "alias": null,
+      "category": "classroom",
+      "bookable": true,
+      "capacity": 40,
+      "manager": "財金系辦公室",
+      "booking_method": "contact_department",
+      "location": "管理學院2樓",
+      "equipment": [
+        {
+          "name": "投影機",
+          "qty": null
+        },
+        {
+          "name": "投影螢幕",
+          "qty": null
+        },
+        {
+          "name": "無線麥克風",
+          "qty": null
+        },
+        {
+          "name": "數位講桌",
+          "qty": null
+        }
+      ],
+      "usage": "需先向財金系辦公室借鑰匙，多為上課使用的教室。（上課使用優先）",
+      "note": null,
+      "description": null,
+      "images": [],
+      "source_title": "管212/一般教室/40人",
+      "source_url": "https://www.ibs.ncnu.edu.tw/index.php/resources/space-classroom/778-212-40",
+      "space_id": 12
+    },
+    {
+      "article_id": 340,
+      "room_code": "管213",
+      "building": "管理學院",
+      "room_no": "213",
+      "floor": 2,
+      "room_type": "個案教室",
+      "alias": null,
+      "category": "classroom",
+      "bookable": true,
+      "capacity": 50,
+      "manager": "管理學院辦公室",
+      "booking_method": "college_form",
+      "location": "管理學院2樓",
+      "equipment": [
+        {
+          "name": "投影機",
+          "qty": null
+        },
+        {
+          "name": "布幕",
+          "qty": null
+        },
+        {
+          "name": "無線麥克風",
+          "qty": 1
+        },
+        {
+          "name": "擴大機",
+          "qty": null
+        }
+      ],
+      "usage": "需先向管理學院辦公室借鑰匙",
+      "note": null,
+      "description": null,
+      "images": [],
+      "source_title": "管213/個案教室/50人",
+      "source_url": "https://www.ibs.ncnu.edu.tw/index.php/resources/space-classroom/340-109-8",
+      "space_id": 13
+    },
+    {
+      "article_id": 346,
+      "room_code": "管215",
+      "building": "管理學院",
+      "room_no": "215",
+      "floor": 2,
+      "room_type": "個案階梯教室",
+      "alias": null,
+      "category": "classroom",
+      "bookable": true,
+      "capacity": 100,
+      "manager": "管理學院辦公室",
+      "booking_method": "college_form",
+      "location": "管理學院2樓",
+      "equipment": [
+        {
+          "name": "投影機",
+          "qty": null
+        },
+        {
+          "name": "布幕",
+          "qty": 2
+        },
+        {
+          "name": "資訊講桌",
+          "qty": null
+        },
+        {
+          "name": "無線麥克風",
+          "qty": 2
+        }
+      ],
+      "usage": "需先向管理學院辦公室借鑰匙",
+      "note": null,
+      "description": null,
+      "images": [],
+      "source_title": "管215/個案階梯教室/100人",
+      "source_url": "https://www.ibs.ncnu.edu.tw/index.php/resources/space-classroom/346-109-14",
+      "space_id": 14
+    },
+    {
+      "article_id": 780,
+      "room_code": "管217",
+      "building": "管理學院",
+      "room_no": "217",
+      "floor": 2,
+      "room_type": "財金系研討室",
+      "alias": null,
+      "category": "seminar_room",
+      "bookable": true,
+      "capacity": 20,
+      "manager": "財金系辦公室",
+      "booking_method": "contact_department",
+      "location": "管理學院2樓",
+      "equipment": [
+        {
+          "name": "投影機",
+          "qty": null
+        },
+        {
+          "name": "移動是白板",
+          "qty": null
+        }
+      ],
+      "usage": "需先向財金系辦公室借鑰匙，多為討論使用的空間。",
+      "note": null,
+      "description": null,
+      "images": [],
+      "source_title": "管217/財金系研討室/20人",
+      "source_url": "https://www.ibs.ncnu.edu.tw/index.php/resources/space-classroom/780-217-20",
+      "space_id": 15
+    },
+    {
+      "article_id": 341,
+      "room_code": "管226",
+      "building": "管理學院",
+      "room_no": "226",
+      "floor": 2,
+      "room_type": "個案階梯教室",
+      "alias": "巴菲特廳",
+      "category": "classroom",
+      "bookable": true,
+      "capacity": 80,
+      "manager": "管理學院辦公室",
+      "booking_method": "college_form",
+      "location": "管理學院2樓",
+      "equipment": [
+        {
+          "name": "投影機",
+          "qty": null
+        },
+        {
+          "name": "布幕",
+          "qty": null
+        },
+        {
+          "name": "資訊講桌",
+          "qty": null
+        },
+        {
+          "name": "無線麥克風",
+          "qty": 1
+        },
+        {
+          "name": "冷氣",
+          "qty": null
+        }
+      ],
+      "usage": "需先向管理學院辦公室借鑰匙",
+      "note": null,
+      "description": null,
+      "images": [],
+      "source_title": "管226/個案階梯教室/80人",
+      "source_url": "https://www.ibs.ncnu.edu.tw/index.php/resources/space-classroom/341-109-9",
+      "space_id": 16
+    },
+    {
+      "article_id": 342,
+      "room_code": "管228",
+      "building": "管理學院",
+      "room_no": "228",
+      "floor": 2,
+      "room_type": "個案階梯教室",
+      "alias": "賈伯斯廳",
+      "category": "classroom",
+      "bookable": true,
+      "capacity": 80,
+      "manager": "管理學院辦公室",
+      "booking_method": "college_form",
+      "location": "管理學院2樓",
+      "equipment": [
+        {
+          "name": "投影機",
+          "qty": null
+        },
+        {
+          "name": "布幕",
+          "qty": null
+        },
+        {
+          "name": "資訊講桌",
+          "qty": null
+        },
+        {
+          "name": "無線麥克風",
+          "qty": 1
+        },
+        {
+          "name": "冷氣",
+          "qty": null
+        },
+        {
+          "name": "擴大機",
+          "qty": null
+        }
+      ],
+      "usage": "需先向管理學院辦公室借鑰匙",
+      "note": null,
+      "description": null,
+      "images": [],
+      "source_title": "管228/個案階梯教室/80人",
+      "source_url": "https://www.ibs.ncnu.edu.tw/index.php/resources/space-classroom/342-109-10",
+      "space_id": 17
+    },
+    {
+      "article_id": 344,
+      "room_code": "管241",
+      "building": "管理學院",
+      "room_no": "241",
+      "floor": 2,
+      "room_type": "個案階梯教室",
+      "alias": "杜拉克廳",
+      "category": "classroom",
+      "bookable": true,
+      "capacity": 100,
+      "manager": "管理學院辦公室",
+      "booking_method": "college_form",
+      "location": "管理學院2樓",
+      "equipment": [
+        {
+          "name": "投影機",
+          "qty": null
+        },
+        {
+          "name": "布幕",
+          "qty": null
+        },
+        {
+          "name": "資訊講桌",
+          "qty": null
+        },
+        {
+          "name": "無線麥克風",
+          "qty": 1
+        },
+        {
+          "name": "冷氣",
+          "qty": null
+        }
+      ],
+      "usage": "需先向管理學院辦公室借鑰匙",
+      "note": null,
+      "description": null,
+      "images": [],
+      "source_title": "管241/個案階梯教室/100人",
+      "source_url": "https://www.ibs.ncnu.edu.tw/index.php/resources/space-classroom/344-109-12",
+      "space_id": 18
+    },
+    {
+      "article_id": 805,
+      "room_code": "管255",
+      "building": "管理學院",
+      "room_no": "255",
+      "floor": 2,
+      "room_type": "會議室",
+      "alias": null,
+      "category": "meeting_room",
+      "bookable": true,
+      "capacity": 30,
+      "manager": "管理學院祕書",
+      "booking_method": "contact_secretary",
+      "location": "管理學院2樓",
+      "equipment": [
+        {
+          "name": "投影機",
+          "qty": null
+        },
+        {
+          "name": "投影螢幕",
+          "qty": null
+        },
+        {
+          "name": "無線網路",
+          "qty": null
+        },
+        {
+          "name": "白板",
+          "qty": null
+        },
+        {
+          "name": "冷氣與電扇",
+          "qty": null
+        },
+        {
+          "name": "有線麥克風",
+          "qty": null
+        }
+      ],
+      "usage": "逕洽管院祕書",
+      "note": null,
+      "description": null,
+      "images": [],
+      "source_title": "管255/會議室/30人",
+      "source_url": "https://www.ibs.ncnu.edu.tw/index.php/resources/space-classroom/805-255-30",
+      "space_id": 19
+    },
+    {
+      "article_id": 533,
+      "room_code": "管260",
+      "building": "管理學院",
+      "room_no": "260",
+      "floor": 2,
+      "room_type": "會議廳",
+      "alias": "大前研一廳",
+      "category": "hall",
+      "bookable": true,
+      "capacity": 120,
+      "manager": "管理學院辦公室",
+      "booking_method": "college_form",
+      "location": "管理學院2樓",
+      "equipment": [
+        {
+          "name": "投影機",
+          "qty": null
+        },
+        {
+          "name": "投影螢幕",
+          "qty": null
+        },
+        {
+          "name": "無線網路",
+          "qty": null
+        },
+        {
+          "name": "白板",
+          "qty": null
+        },
+        {
+          "name": "冷氣與電扇",
+          "qty": null
+        },
+        {
+          "name": "有線麥克風",
+          "qty": null
+        }
+      ],
+      "usage": "需先向管院辦公室借鑰匙，多為上課使用的教室。（上課使用優先）",
+      "note": null,
+      "description": null,
+      "images": [],
+      "source_title": "管260/會議廳/120人",
+      "source_url": "https://www.ibs.ncnu.edu.tw/index.php/resources/space-classroom/533-109-24",
+      "space_id": 20
+    },
+    {
+      "article_id": 534,
+      "room_code": "管268",
+      "building": "管理學院",
+      "room_no": "268",
+      "floor": 2,
+      "room_type": "會議廳",
+      "alias": "史密斯廳",
+      "category": "hall",
+      "bookable": true,
+      "capacity": 270,
+      "manager": "管理學院辦公室",
+      "booking_method": "college_form",
+      "location": "管理學院2樓",
+      "equipment": [
+        {
+          "name": "投影機",
+          "qty": null
+        },
+        {
+          "name": "投影螢幕",
+          "qty": null
+        },
+        {
+          "name": "無線網路",
+          "qty": null
+        },
+        {
+          "name": "白板",
+          "qty": null
+        },
+        {
+          "name": "冷氣與電扇",
+          "qty": null
+        },
+        {
+          "name": "有線麥克風",
+          "qty": null
+        }
+      ],
+      "usage": "需先向管院辦公室借鑰匙，多為上課使用的教室。（上課使用優先）",
+      "note": null,
+      "description": null,
+      "images": [],
+      "source_title": "管268/會議廳/270人",
+      "source_url": "https://www.ibs.ncnu.edu.tw/index.php/resources/space-classroom/534-109-25",
+      "space_id": 21
+    },
+    {
+      "article_id": 782,
+      "room_code": "管305",
+      "building": "管理學院",
+      "room_no": "305",
+      "floor": 3,
+      "room_type": "一般教室",
+      "alias": null,
+      "category": "classroom",
+      "bookable": true,
+      "capacity": 30,
+      "manager": "管理學院辦公室",
+      "booking_method": "college_form",
+      "location": "管理學院3樓",
+      "equipment": [
+        {
+          "name": "投影機",
+          "qty": null
+        },
+        {
+          "name": "投影螢幕",
+          "qty": null
+        },
+        {
+          "name": "無線網路",
+          "qty": null
+        },
+        {
+          "name": "白板",
+          "qty": null
+        },
+        {
+          "name": "冷氣與電扇",
+          "qty": null
+        },
+        {
+          "name": "有線麥克風",
+          "qty": null
+        }
+      ],
+      "usage": "需先向管院辦公室借鑰匙，多為上課使用的教室。（上課使用優先）",
+      "note": null,
+      "description": null,
+      "images": [],
+      "source_title": "管305/一般教室/30人",
+      "source_url": "https://www.ibs.ncnu.edu.tw/index.php/resources/space-classroom/782-305-30",
+      "space_id": 22
+    },
+    {
+      "article_id": 801,
+      "room_code": "管312",
+      "building": "管理學院",
+      "room_no": "312",
+      "floor": 3,
+      "room_type": "一般教室",
+      "alias": null,
+      "category": "classroom",
+      "bookable": true,
+      "capacity": 40,
+      "manager": "管理學院辦公室",
+      "booking_method": "college_form",
+      "location": "管理學院3樓",
+      "equipment": [
+        {
+          "name": "白板",
+          "qty": null
+        },
+        {
+          "name": "冷氣與電扇",
+          "qty": null
+        },
+        {
+          "name": "無線網路",
+          "qty": null
+        },
+        {
+          "name": "投影機",
+          "qty": null
+        },
+        {
+          "name": "布幕",
+          "qty": null
+        },
+        {
+          "name": "智慧講桌",
+          "qty": null
+        }
+      ],
+      "usage": "需先向管院借鑰匙，多為上課使用的教室。（上課使用優先）",
+      "note": null,
+      "description": null,
+      "images": [],
+      "source_title": "管312/一般教室/40人",
+      "source_url": "https://www.ibs.ncnu.edu.tw/index.php/resources/space-classroom/801-312-40",
+      "space_id": 23
+    },
+    {
+      "article_id": 783,
+      "room_code": "管316",
+      "building": "管理學院",
+      "room_no": "316",
+      "floor": 3,
+      "room_type": "經濟系會議室",
+      "alias": null,
+      "category": "meeting_room",
+      "bookable": true,
+      "capacity": 10,
+      "manager": "經濟系辦公室",
+      "booking_method": "contact_department",
+      "location": "管理學院3樓",
+      "equipment": [
+        {
+          "name": "白板",
+          "qty": null
+        },
+        {
+          "name": "冷氣與電扇",
+          "qty": null
+        },
+        {
+          "name": "無線網路",
+          "qty": null
+        }
+      ],
+      "usage": "需先向經濟系借鑰匙，多為討論的空間。",
+      "note": null,
+      "description": null,
+      "images": [],
+      "source_title": "管316/經濟系會議室/10人",
+      "source_url": "https://www.ibs.ncnu.edu.tw/index.php/resources/space-classroom/783-316-10",
+      "space_id": 24
+    },
+    {
+      "article_id": 784,
+      "room_code": "管320",
+      "building": "管理學院",
+      "room_no": "320",
+      "floor": 3,
+      "room_type": "經濟系研討室",
+      "alias": null,
+      "category": "seminar_room",
+      "bookable": true,
+      "capacity": 15,
+      "manager": "經濟系辦公室",
+      "booking_method": "contact_department",
+      "location": "管理學院3樓",
+      "equipment": [
+        {
+          "name": "黑板",
+          "qty": null
+        },
+        {
+          "name": "冷氣與電扇",
+          "qty": null
+        },
+        {
+          "name": "無線網路",
+          "qty": null
+        },
+        {
+          "name": "投影機",
+          "qty": null
+        },
+        {
+          "name": "布幕",
+          "qty": null
+        }
+      ],
+      "usage": "需先向經濟系借鑰匙，多為討論的空間。",
+      "note": null,
+      "description": null,
+      "images": [],
+      "source_title": "管320/經濟系研討室/15人",
+      "source_url": "https://www.ibs.ncnu.edu.tw/index.php/resources/space-classroom/784-320-15",
+      "space_id": 25
+    },
+    {
+      "article_id": 785,
+      "room_code": "管328",
+      "building": "管理學院",
+      "room_no": "328",
+      "floor": 3,
+      "room_type": "觀餐系研討室",
+      "alias": null,
+      "category": "seminar_room",
+      "bookable": true,
+      "capacity": 20,
+      "manager": "觀餐系辦公室",
+      "booking_method": "contact_department",
+      "location": "管理學院3樓",
+      "equipment": [
+        {
+          "name": "黑板",
+          "qty": null
+        },
+        {
+          "name": "冷氣與電扇",
+          "qty": null
+        },
+        {
+          "name": "無線網路",
+          "qty": null
+        },
+        {
+          "name": "投影機",
+          "qty": null
+        },
+        {
+          "name": "布幕",
+          "qty": null
+        },
+        {
+          "name": "智慧講桌",
+          "qty": null
+        }
+      ],
+      "usage": "需先向觀餐系借鑰匙，多為上課使用的教室。（上課使用優先）",
+      "note": null,
+      "description": null,
+      "images": [],
+      "source_title": "管328/觀餐系研討室/20人",
+      "source_url": "https://www.ibs.ncnu.edu.tw/index.php/resources/space-classroom/785-328-20",
+      "space_id": 26
+    },
+    {
+      "article_id": 786,
+      "room_code": "管329",
+      "building": "管理學院",
+      "room_no": "329",
+      "floor": 3,
+      "room_type": "一般教室",
+      "alias": null,
+      "category": "classroom",
+      "bookable": true,
+      "capacity": 60,
+      "manager": "經濟系辦公室",
+      "booking_method": "contact_department",
+      "location": "管理學院3樓",
+      "equipment": [
+        {
+          "name": "黑板",
+          "qty": null
+        },
+        {
+          "name": "冷氣與電扇",
+          "qty": null
+        },
+        {
+          "name": "無線網路",
+          "qty": null
+        },
+        {
+          "name": "投影機",
+          "qty": null
+        },
+        {
+          "name": "布幕",
+          "qty": null
+        },
+        {
+          "name": "智慧講桌",
+          "qty": null
+        }
+      ],
+      "usage": "需先向經濟系借鑰匙，多為上課使用的教室。（上課使用優先）",
+      "note": null,
+      "description": null,
+      "images": [],
+      "source_title": "管329/一般教室/60人",
+      "source_url": "https://www.ibs.ncnu.edu.tw/index.php/resources/space-classroom/786-329-60",
+      "space_id": 27
+    },
+    {
+      "article_id": 787,
+      "room_code": "管331",
+      "building": "管理學院",
+      "room_no": "331",
+      "floor": 3,
+      "room_type": "一般教室",
+      "alias": null,
+      "category": "classroom",
+      "bookable": true,
+      "capacity": 100,
+      "manager": "觀餐系辦公室",
+      "booking_method": "contact_department",
+      "location": "管理學院3樓",
+      "equipment": [
+        {
+          "name": "黑板",
+          "qty": null
+        },
+        {
+          "name": "冷氣與電扇",
+          "qty": null
+        },
+        {
+          "name": "無線網路",
+          "qty": null
+        },
+        {
+          "name": "投影機",
+          "qty": null
+        },
+        {
+          "name": "布幕",
+          "qty": null
+        },
+        {
+          "name": "智慧講桌",
+          "qty": null
+        }
+      ],
+      "usage": "需先向觀餐系借鑰匙，多為上課使用的教室。（上課使用優先）",
+      "note": null,
+      "description": null,
+      "images": [],
+      "source_title": "管331/一般教室/100人",
+      "source_url": "https://www.ibs.ncnu.edu.tw/index.php/resources/space-classroom/787-331-100",
+      "space_id": 28
+    },
+    {
+      "article_id": 345,
+      "room_code": "管350",
+      "building": "管理學院",
+      "room_no": "350",
+      "floor": 3,
+      "room_type": "國企系研討室",
+      "alias": null,
+      "category": "seminar_room",
+      "bookable": true,
+      "capacity": 20,
+      "manager": "國企系辦公室",
+      "booking_method": "ibs_system",
+      "location": "管理學院3樓，用於企專討論",
+      "equipment": [
+        {
+          "name": "投影機",
+          "qty": null
+        },
+        {
+          "name": "投影螢幕",
+          "qty": null
+        },
+        {
+          "name": "無線網路",
+          "qty": null
+        },
+        {
+          "name": "有線網路",
+          "qty": null
+        },
+        {
+          "name": "玻璃白板",
+          "qty": null
+        },
+        {
+          "name": "冷氣與電扇",
+          "qty": null
+        }
+      ],
+      "usage": null,
+      "note": "因地板材質關係，入內需脫鞋。",
+      "description": null,
+      "images": [],
+      "source_title": "管350/國企系研討室/20人",
+      "source_url": "https://www.ibs.ncnu.edu.tw/index.php/resources/space-classroom/345-109-13",
+      "space_id": 29
+    },
+    {
+      "article_id": 804,
+      "room_code": "管352",
+      "building": "管理學院",
+      "room_no": "352",
+      "floor": 3,
+      "room_type": "默契咖啡",
+      "alias": null,
+      "category": "lounge",
+      "bookable": true,
+      "capacity": 42,
+      "manager": "管理學院祕書",
+      "booking_method": "contact_secretary",
+      "location": "管理學院3樓",
+      "equipment": [
+        {
+          "name": "咖啡機",
+          "qty": null
+        },
+        {
+          "name": "冰箱",
+          "qty": null
+        },
+        {
+          "name": "沙發",
+          "qty": null
+        }
+      ],
+      "usage": "逕洽管院祕書",
+      "note": null,
+      "description": null,
+      "images": [],
+      "source_title": "管352/默契咖啡/42人",
+      "source_url": "https://www.ibs.ncnu.edu.tw/index.php/resources/space-classroom/804-352-42",
+      "space_id": 30
+    },
+    {
+      "article_id": 535,
+      "room_code": "管371",
+      "building": "管理學院",
+      "room_no": "371",
+      "floor": 3,
+      "room_type": "會議廳",
+      "alias": "寇斯廳",
+      "category": "hall",
+      "bookable": true,
+      "capacity": 250,
+      "manager": "管理學院辦公室",
+      "booking_method": "college_form",
+      "location": "管理學院3樓",
+      "equipment": [
+        {
+          "name": "投影機",
+          "qty": null
+        },
+        {
+          "name": "投影螢幕",
+          "qty": null
+        },
+        {
+          "name": "無線網路",
+          "qty": null
+        },
+        {
+          "name": "白板",
+          "qty": null
+        },
+        {
+          "name": "冷氣與電扇",
+          "qty": null
+        },
+        {
+          "name": "有線麥克風",
+          "qty": null
+        }
+      ],
+      "usage": "需先向管院辦公室借鑰匙，多為上課使用的教室。（上課使用優先）",
+      "note": null,
+      "description": null,
+      "images": [],
+      "source_title": "管371/會議廳/250人",
+      "source_url": "https://www.ibs.ncnu.edu.tw/index.php/resources/space-classroom/535-109-26",
+      "space_id": 31
+    },
+    {
+      "article_id": 351,
+      "room_code": "管405",
+      "building": "管理學院",
+      "room_no": "405",
+      "floor": 4,
+      "room_type": "國企系碩士生研究室(1)",
+      "alias": null,
+      "category": "research_room",
+      "bookable": false,
+      "capacity": 12,
+      "manager": "國企系辦公室",
+      "booking_method": "not_bookable",
+      "location": "管理學院4樓，國企系碩士生專用",
+      "equipment": [
+        {
+          "name": "鐵櫃",
+          "qty": 2
+        },
+        {
+          "name": "冰箱",
+          "qty": 1
+        },
+        {
+          "name": "白板",
+          "qty": 1
+        },
+        {
+          "name": "螢幕",
+          "qty": 2
+        },
+        {
+          "name": "主機",
+          "qty": 2
+        },
+        {
+          "name": "印表機",
+          "qty": 1
+        },
+        {
+          "name": "椅子",
+          "qty": 24
+        },
+        {
+          "name": "桌子",
+          "qty": 2
+        },
+        {
+          "name": "桌板",
+          "qty": 22
+        },
+        {
+          "name": "活動櫃",
+          "qty": 22
+        },
+        {
+          "name": "電腦桌",
+          "qty": 2
+        },
+        {
+          "name": "電風扇",
+          "qty": 1
+        },
+        {
+          "name": "IP分享器",
+          "qty": 1
+        },
+        {
+          "name": "電話",
+          "qty": 1
+        },
+        {
+          "name": "OA",
+          "qty": 1
+        }
+      ],
+      "usage": null,
+      "note": null,
+      "description": "研究室內設有討論桌、電腦和投影機，供同學進行個案研討、論文撰寫，並有印表機，每位研究生均有列印額度，配有儲物櫃，供相關藏書擺放。",
+      "images": [],
+      "source_title": "管405/國企系碩士生研究室(1)",
+      "source_url": "https://www.ibs.ncnu.edu.tw/index.php/resources/space-classroom/351-109-19",
+      "space_id": 32
+    },
+    {
+      "article_id": 350,
+      "room_code": "管406",
+      "building": "管理學院",
+      "room_no": "406",
+      "floor": 4,
+      "room_type": "國企系碩士生研究室(2)",
+      "alias": null,
+      "category": "research_room",
+      "bookable": false,
+      "capacity": 12,
+      "manager": "國企系辦公室",
+      "booking_method": "not_bookable",
+      "location": "管理學院4樓，國企系碩士生專用",
+      "equipment": [
+        {
+          "name": "鐵櫃",
+          "qty": 1
+        },
+        {
+          "name": "冰箱",
+          "qty": 1
+        },
+        {
+          "name": "白板",
+          "qty": 2
+        },
+        {
+          "name": "螢幕",
+          "qty": 2
+        },
+        {
+          "name": "主機",
+          "qty": 2
+        },
+        {
+          "name": "印表機",
+          "qty": 2
+        },
+        {
+          "name": "椅子",
+          "qty": 26
+        },
+        {
+          "name": "桌子",
+          "qty": 16
+        },
+        {
+          "name": "桌板",
+          "qty": 8
+        },
+        {
+          "name": "活動櫃",
+          "qty": 8
+        },
+        {
+          "name": "電腦桌",
+          "qty": 2
+        },
+        {
+          "name": "電風扇",
+          "qty": 1
+        },
+        {
+          "name": "IP分享器",
+          "qty": 3
+        },
+        {
+          "name": "電話",
+          "qty": 1
+        },
+        {
+          "name": "OA",
+          "qty": 1
+        },
+        {
+          "name": "防潮箱",
+          "qty": 1
+        },
+        {
+          "name": "塑膠架",
+          "qty": 1
+        }
+      ],
+      "usage": null,
+      "note": null,
+      "description": "研究室內設有討論桌、電腦和投影機，供同學進行個案研討、論文撰寫，並有印表機，每位研究生均有列印額度，配有儲物櫃，供相關藏書擺放。",
+      "images": [],
+      "source_title": "管406/國企系碩士生研究室(2)",
+      "source_url": "https://www.ibs.ncnu.edu.tw/index.php/resources/space-classroom/350-109-18",
+      "space_id": 33
+    },
+    {
+      "article_id": 536,
+      "room_code": "管427",
+      "building": "管理學院",
+      "room_no": "427",
+      "floor": 4,
+      "room_type": "會議室",
+      "alias": null,
+      "category": "meeting_room",
+      "bookable": true,
+      "capacity": 40,
+      "manager": "管理學院辦公室",
+      "booking_method": "college_form",
+      "location": "管理學院4樓",
+      "equipment": [
+        {
+          "name": "投影機",
+          "qty": null
+        },
+        {
+          "name": "投影螢幕",
+          "qty": null
+        },
+        {
+          "name": "無線網路",
+          "qty": null
+        },
+        {
+          "name": "白板",
+          "qty": null
+        },
+        {
+          "name": "冷氣與電扇",
+          "qty": null
+        },
+        {
+          "name": "有線麥克風",
+          "qty": null
+        }
+      ],
+      "usage": "需先向管院辦公室借鑰匙，多為上課使用的教室。（上課使用優先）",
+      "note": null,
+      "description": null,
+      "images": [],
+      "source_title": "管427/會議室/40人",
+      "source_url": "https://www.ibs.ncnu.edu.tw/index.php/resources/space-classroom/536-109-27",
+      "space_id": 34
+    },
+    {
+      "article_id": 349,
+      "room_code": "管428",
+      "building": "管理學院",
+      "room_no": "428",
+      "floor": 4,
+      "room_type": "國企系學會辦公室",
+      "alias": null,
+      "category": "office",
+      "bookable": false,
+      "capacity": 14,
+      "manager": "國企系辦公室",
+      "booking_method": "not_bookable",
+      "location": "管理學院4樓，國企系系學會專用",
+      "equipment": [],
+      "usage": null,
+      "note": null,
+      "description": null,
+      "images": [],
+      "source_title": "管428/國企系學會辦公室/會辦",
+      "source_url": "https://www.ibs.ncnu.edu.tw/index.php/resources/space-classroom/349-109-17",
+      "space_id": 35
+    },
+    {
+      "article_id": 347,
+      "room_code": "管429",
+      "building": "管理學院",
+      "room_no": "429",
+      "floor": 4,
+      "room_type": "國企系主任辦公室",
+      "alias": null,
+      "category": "office",
+      "bookable": false,
+      "capacity": null,
+      "manager": "國企系辦公室",
+      "booking_method": "not_bookable",
+      "location": "管理學院4樓，國企系辦裏面",
+      "equipment": [],
+      "usage": null,
+      "note": null,
+      "description": null,
+      "images": [],
+      "source_title": "管429/國企系主任辦公室",
+      "source_url": "https://www.ibs.ncnu.edu.tw/index.php/resources/space-classroom/347-109-15",
+      "space_id": 36
+    },
+    {
+      "article_id": 348,
+      "room_code": "管431",
+      "building": "管理學院",
+      "room_no": "431",
+      "floor": 4,
+      "room_type": "國企系辦公室",
+      "alias": null,
+      "category": "office",
+      "bookable": false,
+      "capacity": null,
+      "manager": null,
+      "booking_method": "not_bookable",
+      "location": "管理學院4樓，電梯出來右轉第2間",
+      "equipment": [],
+      "usage": null,
+      "note": "人員：系主任、系辦助理姐姐、張老師",
+      "description": "管431/國企系系辦",
+      "images": [],
+      "source_title": "管431/國企系辦公室/系辦",
+      "source_url": "https://www.ibs.ncnu.edu.tw/index.php/resources/space-classroom/348-109-16",
+      "space_id": 37
+    },
+    {
+      "article_id": 337,
+      "room_code": "管432",
+      "building": "管理學院",
+      "room_no": "432",
+      "floor": 4,
+      "room_type": "國企系會議室",
+      "alias": null,
+      "category": "meeting_room",
+      "bookable": true,
+      "capacity": 20,
+      "manager": "國企系辦公室",
+      "booking_method": "ibs_system",
+      "location": "管理學院4樓，電梯出來右轉第1間",
+      "equipment": [
+        {
+          "name": "投影機",
+          "qty": null
+        },
+        {
+          "name": "投影螢幕",
+          "qty": null
+        },
+        {
+          "name": "無線網路",
+          "qty": null
+        },
+        {
+          "name": "有線網路",
+          "qty": null
+        },
+        {
+          "name": "玻璃白板",
+          "qty": null
+        },
+        {
+          "name": "冷氣與電扇",
+          "qty": null
+        }
+      ],
+      "usage": null,
+      "note": null,
+      "description": "預約空間：管432會議室\n預約方式：若需要使用，請先至國企系預約空教室網頁登記",
+      "images": [],
+      "source_title": "管432/國企系會議室/20人",
+      "source_url": "https://www.ibs.ncnu.edu.tw/index.php/resources/space-classroom/337-109-6",
+      "space_id": 38
+    },
+    {
+      "article_id": 537,
+      "room_code": "管443",
+      "building": "管理學院",
+      "room_no": "443",
+      "floor": 4,
+      "room_type": "一般教室",
+      "alias": null,
+      "category": "classroom",
+      "bookable": true,
+      "capacity": 50,
+      "manager": "管理學院辦公室",
+      "booking_method": "college_form",
+      "location": "管理學院4樓",
+      "equipment": [
+        {
+          "name": "投影機",
+          "qty": null
+        },
+        {
+          "name": "投影螢幕",
+          "qty": null
+        },
+        {
+          "name": "無線網路",
+          "qty": null
+        },
+        {
+          "name": "白板",
+          "qty": null
+        },
+        {
+          "name": "冷氣與電扇",
+          "qty": null
+        },
+        {
+          "name": "有線麥克風",
+          "qty": null
+        }
+      ],
+      "usage": "需先向管院辦公室借鑰匙，多為上課使用的教室。（上課使用優先）",
+      "note": null,
+      "description": null,
+      "images": [],
+      "source_title": "管443/一般教室/50人",
+      "source_url": "https://www.ibs.ncnu.edu.tw/index.php/resources/space-classroom/537-109-28",
+      "space_id": 39
+    },
+    {
+      "article_id": 802,
+      "room_code": "管451",
+      "building": "管理學院",
+      "room_no": "451",
+      "floor": 4,
+      "room_type": "研討室",
+      "alias": null,
+      "category": "seminar_room",
+      "bookable": true,
+      "capacity": 20,
+      "manager": "資管系辦公室",
+      "booking_method": "contact_department",
+      "location": "管理學院4樓",
+      "equipment": [
+        {
+          "name": "移動式白板",
+          "qty": null
+        },
+        {
+          "name": "冷氣與電扇",
+          "qty": null
+        },
+        {
+          "name": "無線網路",
+          "qty": null
+        },
+        {
+          "name": "投影機",
+          "qty": null
+        },
+        {
+          "name": "布幕",
+          "qty": null
+        },
+        {
+          "name": "智慧講桌",
+          "qty": null
+        }
+      ],
+      "usage": "需先向資管系借鑰匙，多為上課使用的教室。（上課使用優先）",
+      "note": null,
+      "description": null,
+      "images": [],
+      "source_title": "管451/研討室/20人",
+      "source_url": "https://www.ibs.ncnu.edu.tw/index.php/resources/space-classroom/802-451-20",
+      "space_id": 40
+    },
+    {
+      "article_id": 538,
+      "room_code": "管457",
+      "building": "管理學院",
+      "room_no": "457",
+      "floor": 4,
+      "room_type": "一般教室",
+      "alias": null,
+      "category": "classroom",
+      "bookable": true,
+      "capacity": 60,
+      "manager": "管理學院辦公室",
+      "booking_method": "college_form",
+      "location": "管理學院4樓",
+      "equipment": [
+        {
+          "name": "投影機",
+          "qty": null
+        },
+        {
+          "name": "投影螢幕",
+          "qty": null
+        },
+        {
+          "name": "無線網路",
+          "qty": null
+        },
+        {
+          "name": "白板",
+          "qty": null
+        },
+        {
+          "name": "冷氣與電扇",
+          "qty": null
+        },
+        {
+          "name": "有線麥克風",
+          "qty": null
+        }
+      ],
+      "usage": "需先向管院辦公室借鑰匙，多為上課使用的教室。（上課使用優先）",
+      "note": null,
+      "description": null,
+      "images": [],
+      "source_title": "管457/一般教室/60人",
+      "source_url": "https://www.ibs.ncnu.edu.tw/index.php/resources/space-classroom/538-109-29",
+      "space_id": 41
+    },
+    {
+      "article_id": 803,
+      "room_code": "管5003~5119",
+      "building": "管理學院",
+      "room_no": "5003~5119",
+      "floor": 5,
+      "room_type": "教師研究室",
+      "alias": null,
+      "category": "research_room",
+      "bookable": false,
+      "capacity": null,
+      "manager": null,
+      "booking_method": "not_bookable",
+      "location": "管理學院5樓",
+      "equipment": [],
+      "usage": null,
+      "note": null,
+      "description": null,
+      "images": [],
+      "source_title": "管5003~5119/教師研究室",
+      "source_url": "https://www.ibs.ncnu.edu.tw/index.php/resources/space-classroom/803-312-41",
+      "space_id": 42
+    },
+    {
+      "article_id": 681,
+      "room_code": "教A000",
+      "building": "教育學院",
+      "room_no": "A000",
+      "floor": -1,
+      "room_type": "一般教室",
+      "alias": null,
+      "category": "classroom",
+      "bookable": true,
+      "capacity": 200,
+      "manager": null,
+      "booking_method": "unknown",
+      "location": "教育學院B1樓",
+      "equipment": [
+        {
+          "name": "投影機",
+          "qty": null
+        },
+        {
+          "name": "DVD播放機",
+          "qty": null
+        },
+        {
+          "name": "數位講桌",
+          "qty": null
+        }
+      ],
+      "usage": null,
+      "note": null,
+      "description": null,
+      "images": [],
+      "source_title": "教A000/一般教室/200人",
+      "source_url": "https://www.ibs.ncnu.edu.tw/index.php/resources/space-classroom/681-109-32",
+      "space_id": 43
+    },
+    {
+      "article_id": 679,
+      "room_code": "教A001",
+      "building": "教育學院",
+      "room_no": "A001",
+      "floor": -1,
+      "room_type": "一般教室",
+      "alias": null,
+      "category": "classroom",
+      "bookable": true,
+      "capacity": 120,
+      "manager": null,
+      "booking_method": "unknown",
+      "location": "教育學院B1樓",
+      "equipment": [
+        {
+          "name": "投影機",
+          "qty": null
+        },
+        {
+          "name": "DVD播放機",
+          "qty": null
+        },
+        {
+          "name": "數位講桌",
+          "qty": null
+        }
+      ],
+      "usage": null,
+      "note": null,
+      "description": null,
+      "images": [],
+      "source_title": "教A001/一般教室/120人",
+      "source_url": "https://www.ibs.ncnu.edu.tw/index.php/resources/space-classroom/679-109-30",
+      "space_id": 44
+    },
+    {
+      "article_id": 680,
+      "room_code": "教A100",
+      "building": "教育學院",
+      "room_no": "A100",
+      "floor": 1,
+      "room_type": "一般教室",
+      "alias": null,
+      "category": "classroom",
+      "bookable": true,
+      "capacity": 200,
+      "manager": null,
+      "booking_method": "unknown",
+      "location": "教育學院1樓",
+      "equipment": [
+        {
+          "name": "投影機",
+          "qty": null
+        },
+        {
+          "name": "DVD播放機",
+          "qty": null
+        },
+        {
+          "name": "數位講桌",
+          "qty": null
+        }
+      ],
+      "usage": null,
+      "note": null,
+      "description": null,
+      "images": [],
+      "source_title": "教A100/一般教室/200人",
+      "source_url": "https://www.ibs.ncnu.edu.tw/index.php/resources/space-classroom/680-109-31",
+      "space_id": 45
+    },
+    {
+      "article_id": 961,
+      "room_code": "教A301",
+      "building": "教育學院",
+      "room_no": "A301",
+      "floor": 3,
+      "room_type": "一般教室",
+      "alias": null,
+      "category": "classroom",
+      "bookable": true,
+      "capacity": 90,
+      "manager": "國比系辦公室",
+      "booking_method": "contact_department",
+      "location": "教育學院3樓",
+      "equipment": [
+        {
+          "name": "投影機",
+          "qty": null
+        },
+        {
+          "name": "DVD播放機",
+          "qty": null
+        },
+        {
+          "name": "數位講桌",
+          "qty": null
+        }
+      ],
+      "usage": null,
+      "note": null,
+      "description": null,
+      "images": [],
+      "source_title": "教A301/一般教室/90人",
+      "source_url": "https://www.ibs.ncnu.edu.tw/index.php/resources/space-classroom/961-109-34",
+      "space_id": 46
+    }
+  ]
+}

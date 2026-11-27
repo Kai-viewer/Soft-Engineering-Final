@@ -1,0 +1,75 @@
+{% extends "spaces/_layout.html" %}
+{% from "spaces/_macros.html" import category_tag, room_title %}
+{% block title %}空間查詢{% endblock %}
+
+{% block page %}
+<section class="intro">
+  <h1>空間查詢</h1>
+  <p>查詢管理學院的教室、會議室與研討室：容納人數、設備、管理單位與借用方式。不需登入。
+    想知道教室在大樓哪裡？看<a href="/rooms/floorplan#map">樓層平面圖與大樓地圖</a>。</p>
+</section>
+
+<form class="panel filters" method="get" action="/rooms">
+  <div class="search-row">
+    <input type="search" name="q" value="{{ f.q }}" placeholder="教室編號、廳名、設備或管理單位，例：228、賈伯斯、麥克風" aria-label="關鍵字">
+    <button type="submit">搜尋</button>
+  </div>
+  <div class="filter-grid">
+    <div><label for="f-building">大樓</label>
+      <select id="f-building" name="building" data-autosubmit>
+        <option value="">全部</option>
+        {% for b in buildings %}<option value="{{ b }}" {% if f.building == b %}selected{% endif %}>{{ b }}</option>{% endfor %}
+      </select></div>
+    <div><label for="f-floor">樓層</label>
+      <select id="f-floor" name="floor" data-autosubmit>
+        <option value="">全部</option>
+        {% for fl in floors %}<option value="{{ fl }}" {% if f.floor == fl %}selected{% endif %}>{{ fl | floor }}</option>{% endfor %}
+      </select></div>
+    <div><label for="f-category">類型</label>
+      <select id="f-category" name="category" data-autosubmit>
+        <option value="">全部</option>
+        {% for k, v in CATEGORIES.items() %}<option value="{{ k }}" {% if f.category == k %}selected{% endif %}>{{ v }}</option>{% endfor %}
+      </select></div>
+    <div><label for="f-cap">至少容納</label>
+      <input id="f-cap" type="number" name="min_cap" min="1" value="{{ f.min_cap if f.min_cap is not none else '' }}" placeholder="人數"></div>
+    <div><label for="f-facility">設備</label>
+      <select id="f-facility" name="facility" data-autosubmit>
+        <option value="">不限</option>
+        {% for n in facility_names %}<option value="{{ n }}" {% if f.facility == n %}selected{% endif %}>{{ n }}</option>{% endfor %}
+      </select></div>
+    <div><label for="f-sort">排序</label>
+      <select id="f-sort" name="sort" data-autosubmit>
+        {% for k, v in [('room', '教室編號'), ('cap_desc', '人數多到少'), ('cap_asc', '人數少到多')] %}
+        <option value="{{ k }}" {% if f.sort == k %}selected{% endif %}>{{ v }}</option>{% endfor %}
+      </select></div>
+  </div>
+  <div class="actions">
+    <label class="check"><input type="checkbox" name="bookable" value="1" data-autosubmit {% if f.bookable %}checked{% endif %}> 只看可借用</label>
+    <label class="check"><input type="checkbox" name="pano" value="1" data-autosubmit {% if f.pano %}checked{% endif %}> 只看有 360° 照片</label>
+    <a href="/rooms" class="small">清除條件</a>
+  </div>
+</form>
+
+<p class="result-count"><strong>{{ rooms | length }}</strong> / {{ total }} 間</p>
+<div class="room-grid">
+  {% for r in rooms %}
+  <a class="panel room-card" href="/rooms/{{ r.id }}">
+    <div class="room-card-head">
+      <h2>{{ room_title(r) }}</h2>
+      <span class="cap">{{ r.capacity }}<small> 人</small></span>
+    </div>
+    <p>{{ r.room_type or r.name }} · {{ r.building }} {{ r.floor | floor }}</p>
+    <div class="tags">
+      {{ category_tag(r.category) }}
+      {% if not r.bookable %}<span class="tag gray">不開放借用</span>{% endif %}
+      {% if r.panorama_path %}<span class="tag dark">360°</span>{% endif %}
+    </div>
+    <p class="small">管理單位：{{ r.manager or '未註明' }}</p>
+    {% set names = r.facilities | map(attribute='name') | list %}
+    <p class="small facilities">{{ names[:5] | join('、') }}{% if names | length > 5 %}…{% endif %}</p>
+  </a>
+  {% else %}
+  <p>找不到符合條件的空間，請放寬搜尋條件。</p>
+  {% endfor %}
+</div>
+{% endblock %}
