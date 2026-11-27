@@ -17,8 +17,9 @@ from app.spaces.models import Room
 def seed(engine, password: str) -> None:
     if os.getenv("DEMO_MODE", "").lower() != "true":
         raise RuntimeError("Enable DEMO_MODE only on a local development database.")
-    if len(password) < 12:
-        raise ValueError("Use at least 12 characters for the demo password.")
+    local_database = engine.url.host in {None, "localhost", "127.0.0.1", "::1"}
+    if len(password) < 12 and not (password == "123" and local_database):
+        raise ValueError("Use at least 12 characters unless using the local demo password.")
 
     with Session(engine) as db, db.begin():
         users = {}
